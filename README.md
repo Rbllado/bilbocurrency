@@ -62,9 +62,9 @@ Application web to see the current cryptocurrencies in the world. You can check 
 - Favorites
 
 
-  
 
- 
+
+
 
 ## Services
 
@@ -149,30 +149,6 @@ History model
 
 
 
-## API Routes (Back-end):
-
-| **Method** | **Route**                     | **Description**                                                          | Request - Body                                           |
-| ---------- | ----------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------- |
-| `GET`      | `/`                           | Main page route. Renders home `index` view.                              |                                                          |
-| `GET`      | `/login`                      | Renders `login` form view.                                               |                                                          |
-| `POST`     | `/login`                      | Sends Login form data to the server.                                     | { email, password }                                      |
-| `GET`      | `/logout`                     | Renders `index` form view.                                               |                                                          |
-| `GET`      | `/signup`                     | Renders `signup` form view.                                              |                                                          |
-| `POST`     | `/signup`                     | Sends Sign Up info to the server and creates user in the DB.             | { email, password }                                      |
-| `GET`      | `/private/edit-profile`       | Private route. Renders `edit-profile` form view.                         |                                                          |
-| `PUT`      | `/private/edit-profile`       | Private route. Sends edit-profile info to server and updates user in DB. | { email, password, [firstName], [lastName], [imageUrl] } |
-| `GET`      | `/private/favorites`          | Private route. Render the `favorites coins` view.                              |                                                          |
-| `POST`     | `/private/favorites/`         | Private route. Adds a new favorite for the current user.                 | { name, coins}                                 |
-| `DELETE`   | `/private/favorites/:OwnerId` | Private route. Deletes the existing favorite from the current user.      |                                                          |
-| `GET`      | `/coins`                       | Renders `coins list` view.                                               |                                         |
-| `GET`      | `/coins/coin/:id`             | Render `coin detail` view for the particular house.                     |                                         |
-
-|
-
-
-
-
-
 ## API Endpoints (backend routes)
 
 | HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
@@ -180,16 +156,16 @@ History model
 | GET         | `/auth/profile`             | Saved session                | 200            | 404          | Check if user is logged in and return profile page           |
 | POST        | `/auth/signup`              | {name, email, password}      | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
 | POST        | `/auth/login`               | {username, password}         | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session |
-| POST        | `/auth/logout`              | (empty)                      | 204            | 400          | Logs out the user                                            |
-| GET         | `/coins`                    |                              |                | 400          | Show all coins                                         |
-| GET         | `/coins/:id`                | {id}                         |                |              | Show specific coin                                     |
-| POST        | `/coins/add/:id`            | {id}                         | 201            | 400          | Create and save a new coins                            |
+| POST        | `/auth/logout`              | (empty)                      | 204            | 400          | Logs out the user                                     |
+| GET         | `/coins`                    |                              |                | 400          | Show all coins                                        |
+| GET         | `/coins/:id`                | {id}                         |                |              | Show specific coin                                    |
+| POST        | `/coins/add/:id`            | {id}                         | 201            | 400          | Create and save a new coins                           |
+| DELETE      | `/coins/delete/:id`         | {id}                         | 201            | 400          | delete coin                                           |
+| DELETE      | `/coins/delete/:id`         | {id}                         | 201            | 400          | delete coin                                           |
+| GET         | `/history`                  | {id}                         |                | 400          | value of all values from a coin during a time         |
 
-| DELETE      | `/coins/delete/:id`         | {id}                         | 201            | 400          | delete coin                                            |
-| DELETE      | `/coins/delete/:id`         | {id}                         | 201            | 400          | delete coin                                            |
-| GET         | `/history`                  | {id}                         |                | 400          | value of all values from a coin during a time                                          
 
-|
+
 
 
 
