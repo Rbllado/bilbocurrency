@@ -162,7 +162,7 @@ History model
 | `GET`      | `/private/edit-profile`       | Private route. Renders `edit-profile` form view.                         |                                                          |
 | `PUT`      | `/private/edit-profile`       | Private route. Sends edit-profile info to server and updates user in DB. | { email, password, [firstName], [lastName], [imageUrl] } |
 | `GET`      | `/private/favorites`          | Private route. Render the `favorites coins` view.                              |                                                          |
-| `POST`     | `/private/favorites/`         | Private route. Adds a new favorite for the current user.                 | { name, house}                                 |
+| `POST`     | `/private/favorites/`         | Private route. Adds a new favorite for the current user.                 | { name, coins}                                 |
 | `DELETE`   | `/private/favorites/:OwnerId` | Private route. Deletes the existing favorite from the current user.      |                                                          |
 | `GET`      | `/coins`                       | Renders `coins list` view.                                               |                                         |
 | `GET`      | `/coins/coin/:id`             | Render `coin detail` view for the particular house.                     |                                         |
@@ -187,7 +187,7 @@ History model
 
 | DELETE      | `/coins/delete/:id`         | {id}                         | 201            | 400          | delete coin                                            |
 | DELETE      | `/coins/delete/:id`         | {id}                         | 201            | 400          | delete coin                                            |
-| GET         | `/history`                  | {id}                         |                | 400          | show players                                          
+| GET         | `/history`                  | {id}                         |                | 400          | value of all values from a coin during a time                                          
 
 |
 
