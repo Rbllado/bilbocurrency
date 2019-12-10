@@ -18,10 +18,7 @@ Application web to see the current cryptocurrencies in the world. You can check 
 - **Logout** - As a user I want to be able to log out from the web page so that I can make sure no one will access my account
 - **Favorite list** - As a user I want to see the list of my favorite and delete them.
 - **Edit user** - As a user I want to be able to edit my profile.
-- **Restaurants listing** - As a user I want to see more details of the restaurant in a city, be able to see the rating, description and add to my favourites
-- **Museums listing** - As a user I want to see more details of the museums in a city, be able to see the rating, description and add to my favourites
-- **Events listing** - As a user I want to see more details of the events in a city, be able to see the rating, description and add to my favourites
-- **Hotels listing** - As a user I want to see more details of the hotels in a city, be able to see the rating, description and add to my favourites
+
 
 <br>
 # Client / Frontend
@@ -37,7 +34,8 @@ Application web to see the current cryptocurrencies in the world. You can check 
 | `/coins/add`              | CoinsAddPage         | user only   | Edits a coins                                                |
 | `/coins/:id`              | coinsDetailPage      | public      | Details of a coins                                           |
 | `/calculator`             | Calculator           | user & public   |  Calculate price in $                                    |
-| `/favorites`              | Favorites            | user only   | Favorites coins                                              |
+| `/user/favorites`              | Favorites            | user only   | Favorites coins                                              |
+| `/user/editProfile`              | Edit            | user only   | Profile                                             |
 
 
 
@@ -46,6 +44,8 @@ Application web to see the current cryptocurrencies in the world. You can check 
 ## Components
 
 - LoginPage
+
+- SingUp
 
 - Navbar
 
@@ -60,6 +60,8 @@ Application web to see the current cryptocurrencies in the world. You can check 
 - Calculator
 
 - Favorites
+
+- Edit
 
 
 
@@ -83,7 +85,7 @@ Application web to see the current cryptocurrencies in the world. You can check 
   
 - Favorites Service 
 
-  - favorites.detail(id)
+  - favorites.get()
   - favorites.add(id)
   - favorites.delete(id)
 
@@ -132,7 +134,7 @@ Favorites model
 
 ```javascript
 {
-  placeId: {type: String}
+  listCoin: {type: String}
 }
 ```
 
@@ -159,10 +161,9 @@ History model
 | POST        | `/auth/logout`              | (empty)                      | 204            | 400          | Logs out the user                                     |
 | GET         | `/coins`                    |                              |                | 400          | Show all coins                                        |
 | GET         | `/coins/:id`                | {id}                         |                |              | Show specific coin                                    |
-| POST        | `/coins/add/:id`            | {id}                         | 201            | 400          | Create and save a new coins                           |
-| DELETE      | `/coins/delete/:id`         | {id}                         | 201            | 400          | delete coin                                           |
-| DELETE      | `/coins/delete/:id`         | {id}                         | 201            | 400          | delete coin                                           |
-| GET         | `/history`                  | {id}                         |                | 400          | value of all values from a coin during a time         |
+| POST        | `/coins/add/  `            |                          | 201            | 400          | Create and save a new coins                           |
+| DELETE      | `/coins/delete/:id`         | {id}                         | 201            | 400          | delete coin                                           |                                          |
+| GET         | `/history`                  | {id}                         |                | 400          | value of all values from a coin during a time         | 
 
 
 
@@ -175,7 +176,7 @@ History model
 
 Trello
 
-[Trello Link]()
+[Trello Link](https://trello.com/b/wc5KparA/bilbocurrency)
 
 ## Links
 
@@ -183,7 +184,7 @@ Trello
 
 The url to your repository and to your deployed project
 
-[Repository Link](https://github.com/Rbllado/villabaleares)
+[Repository Link](https://github.com/Rbllado/BilboCurrency)
 
 [Deploy Link]()
 
