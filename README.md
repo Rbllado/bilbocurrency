@@ -1,10 +1,10 @@
-# CityEasier
+# BilboCurrency
 
 <br>
 
 ## Description
 
-Application web to make easier your stay in a city. You will be able to find the most tyipical events, restaurants, museums and hotels in a city.
+Application web to see the current cryptocurrencies in the world. You can check the price and see how is moving the crypto market nowadays. For each coin you will have a detail description about the latest price, what it the coin about, the website of the coin and a chart.
 
 <br>
 
@@ -24,6 +24,130 @@ Application web to make easier your stay in a city. You will be able to find the
 - **Hotels listing** - As a user I want to see more details of the hotels in a city, be able to see the rating, description and add to my favourites
 
 <br>
+# Client / Frontend
+
+## Routes (React App)
+| Path                      | Component            | Permissions | Behavior                                                     |
+| ------------------------- | -------------------- | ----------- | ------------------------------------------------------------ |
+| `/`                       | Index                | public      | Home page                                        |
+| `/auth/signup`            | SignupPage           | anon only   | Signup form, link to login, navigate to homepage after signup |
+| `/auth/login`             | LoginPage            | anon only   | Login form, link to signup, navigate to homepage after login |
+| `/auth/logout`            | n/a                  | anon only   | Navigate to homepage after logout, expire session            |
+| `/coins`                  | CoinsListPage        | public      | Shows all coins in a list                                    |
+| `/coins/add`              | CoinsAddPage         | user only   | Edits a coins                                                |
+| `/coins/:id`              | coinsDetailPage      | public      | Details of a coins                                           |
+| `/calculator`             | Calculator           | user & public   |  Calculate price in $                                    |
+| `/favorites`              | Favorites            | user only   | Favorites coins                                              |
+
+
+
+
+
+## Components
+
+- LoginPage
+
+- Navbar
+
+- Index
+
+- coinsListPage
+
+- coinsAddPage
+
+- coinsDetailPage
+
+- Calculator
+
+- Favorites
+
+
+  
+
+ 
+
+## Services
+
+- Auth Service
+  - auth.login(user)
+  - auth.signup(user)
+  - auth.logout()
+  - auth.me()
+  - auth.getUser() // synchronous
+
+- Coins Service
+  - coins.list()
+  - coins.detail(id)
+  - coins.add(id)
+  - coins.delete(id)
+  
+- Favorites Service 
+
+  - favorites.detail(id)
+  - favorites.add(id)
+  - favorites.delete(id)
+
+- Calculator Service
+
+  - Calculator.coin(id)
+
+
+
+<br>
+
+# Server / Backend
+
+
+## Models
+
+User model
+
+```javascript
+{
+  username: {type: String, required: true, unique: true},
+  email: {type: String, required: true, unique: true},
+  password: {type: String, required: true},
+  favorites: [Coins],
+  ownCoins: [OwnCoins]
+}
+```
+
+Coin Model
+
+```javascript
+{
+  name: {type: String, required: true},
+  price: {type: Number, required: true},
+  type: {type: String, required: true},
+  symbol: { type: String, required: true }
+  img: {type: String},
+  description: {type: String},
+  web: {type: String},
+  history: [History],
+  ownCoins: [OwnCoins]
+}
+```
+
+Favorites model
+
+```javascript
+{
+  placeId: {type: String}
+}
+```
+
+History model
+
+```javascript
+{
+  historyId: {type: String}
+}
+```
+
+<br>
+
+
+
 
 ## API Routes (Back-end):
 
@@ -37,61 +161,36 @@ Application web to make easier your stay in a city. You will be able to find the
 | `POST`     | `/signup`                     | Sends Sign Up info to the server and creates user in the DB.             | { email, password }                                      |
 | `GET`      | `/private/edit-profile`       | Private route. Renders `edit-profile` form view.                         |                                                          |
 | `PUT`      | `/private/edit-profile`       | Private route. Sends edit-profile info to server and updates user in DB. | { email, password, [firstName], [lastName], [imageUrl] } |
-| `GET`      | `/private/favorites`          | Private route. Render the `favorites` view.                              |                                                          |
+| `GET`      | `/private/favorites`          | Private route. Render the `favorites coins` view.                              |                                                          |
 | `POST`     | `/private/favorites/`         | Private route. Adds a new favorite for the current user.                 | { name, house}                                 |
 | `DELETE`   | `/private/favorites/:OwnerId` | Private route. Deletes the existing favorite from the current user.      |                                                          |
-| `GET`      | `/city`                       | Renders `house list` view.                                               |                                         |
-| `GET`      | `/city/house/:id`             | Render `house detail` view for the particular house.                     |                                         |
-| `GET`      | `/`                           | Renders `museums-list` view.                                             |                                         |
+| `GET`      | `/coins`                       | Renders `coins list` view.                                               |                                         |
+| `GET`      | `/coins/coin/:id`             | Render `coin detail` view for the particular house.                     |                                         |
 
 |
 
-## Models
 
-User model
 
-```javascript
-{
-  name: String,
-  email: String,
-  password: String,
-  favorites: [FavoriteId],
-  ownHouses: [OwnHouses]
-}
 
-```
 
-Favorites model
+## API Endpoints (backend routes)
 
-```javascript
-{
-  placeId: String,
-}
+| HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
+| ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
+| GET         | `/auth/profile`             | Saved session                | 200            | 404          | Check if user is logged in and return profile page           |
+| POST        | `/auth/signup`              | {name, email, password}      | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
+| POST        | `/auth/login`               | {username, password}         | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session |
+| POST        | `/auth/logout`              | (empty)                      | 204            | 400          | Logs out the user                                            |
+| GET         | `/coins`                    |                              |                | 400          | Show all coins                                         |
+| GET         | `/coins/:id`                | {id}                         |                |              | Show specific coin                                     |
+| POST        | `/coins/add/:id`            | {id}                         | 201            | 400          | Create and save a new coins                            |
 
-```
+| DELETE      | `/coins/delete/:id`         | {id}                         | 201            | 400          | delete coin                                            |
+| DELETE      | `/coins/delete/:id`         | {id}                         | 201            | 400          | delete coin                                            |
+| GET         | `/history`                  | {id}                         |                | 400          | show players                                          
 
-House model
+|
 
-```javascript
-{
-  name: String,
-  type: String,
-  rating: Number,
-  contact: [{
-    addres: String,
-    phone: Number
-  }]
-  web: String,
-  description: String,
-  people: String,
-  comments:[{
-    name: String,
-    date: Date,
-    comment: String
-  }]
-}
-
-```
 
 
 <br>
