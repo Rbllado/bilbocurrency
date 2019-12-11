@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import CoinsList from "./components/Coins/CoinsList"
+
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Private from './pages/Private';
@@ -20,6 +22,9 @@ class App extends Component {
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/private" component={Private} />
+
+
+          <CoinsList />
         </Switch>
       </div>
     );
