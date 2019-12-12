@@ -7,21 +7,17 @@ class CoinsList extends Component {
     coin: {}
   };
 
-
   getCoin = () => {
+    console.log("Heyyy", this.props.match.params);
 
-    console.log("Heyyy",  this.props.match.params);
-    
-    
     const id = this.props.match.params.id;
     console.log(id);
-    
+
     axios
       .post(`http://localhost:5000/coins/detail/${id}`)
-    //   .get(`http://localhost:5000/coins/detail/5`)
+      //   .get(`http://localhost:5000/coins/detail/5`)
       //   .headers(CMC_PRO_API_KEY = "3e18416b-942d-419a-89ab-8f8058b12944")
       .then(response => {
-        
         // I will have all the information of a coin.
         const coin = response.data;
         console.log("coin", coin.name);
@@ -37,12 +33,18 @@ class CoinsList extends Component {
 
   render() {
     return (
-      <div className="coin-container">
-        <h2>{this.state.coin.name}</h2>
-        <h4>{this.state.coin.description}</h4>
-        <h4>{this.state.coin.price}</h4>
-        <h4>{this.state.coin.symbol}</h4>
-
+      <div className="detail-container">
+        <div className="detail-coin">
+          <div>
+            <img src={this.state.coin.img} alt="" />
+            <h2>{this.state.coin.name}</h2>
+          </div>
+          <p>{this.state.coin.description}</p>
+          <h3>{this.state.coin.price}</h3>
+          <h4>{this.state.coin.symbol}</h4>
+          <h4>{this.state.coin.web}</h4>
+          <h4>{this.state.coin.tags}</h4>
+        </div>
       </div>
     );
   }

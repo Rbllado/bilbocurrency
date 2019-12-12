@@ -18,8 +18,12 @@
 }
 .coin-container a{
   text-decoration: none;
+}
 
-  
+.detail-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .coins:hover{
@@ -38,9 +42,27 @@ border-radius: 30px;
   text-align: center;
   padding: 60px;
   align-items: center;
-  width: 200px;
-  
+  width: 200px; 
 }
+
+
+.detail-coin{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* height: 500px;
+  width: 150vh; */
+  margin: 50px;
+  padding: 40px;
+  -webkit-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+  box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+
+}
+
+
+
 img{
   width: 50px;
 }
