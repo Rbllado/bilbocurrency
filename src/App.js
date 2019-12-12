@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import "./App.css";
 
 import CoinsList from "./components/Coins/CoinsList"
+import History from "./components/Coins/History"
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -24,7 +26,8 @@ class App extends Component {
           <PrivateRoute exact path="/private" component={Private} />
 
 
-          <CoinsList />
+          <CoinsList  exact path="/coins"/>
+          <History  path="/coins/updatehistory" />
         </Switch>
       </div>
     );

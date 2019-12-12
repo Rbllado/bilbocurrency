@@ -6,15 +6,15 @@ class Navbar extends Component {
   render() {
     const { user, logout, isLoggedin } = this.props;
     return (
-      <div
+      <div 
         style={{ borderRadius: '5px', padding: '20px', background: '#686de0' }}>
         {isLoggedin ? (
-          <div>
+          <div >
             <p>username: {user.username}</p>
             <button onClick={logout}>Logout</button>
           </div>
         ) : (
-          <div>
+          <div className="navbar-wrap">
             <Link to="/login">
               {' '}
               <button>Login</button>{' '}
@@ -23,6 +23,14 @@ class Navbar extends Component {
             <Link to="/signup">
               {' '}
               <button>Signup</button>{' '}
+            </Link>
+            <Link to="/coins">
+              {' '}
+              <button>CoinList</button>{' '}
+            </Link>
+            <Link to="/coins/updateHistory">
+              {' '}
+              <button>Update Hisotry</button>{' '}
             </Link>
           </div>
         )}

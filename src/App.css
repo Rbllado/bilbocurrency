@@ -6,6 +6,44 @@
   height: 40vmin;
   pointer-events: none;
 }
+.navbar-wrap{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.coin-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.coin-container a{
+  text-decoration: none;
+
+  
+}
+
+.coins:hover{
+  transform: scale(1);
+  -webkit-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+border-radius: 30px;
+}
+
+.coins{
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: space-between;
+  text-align: center;
+  padding: 60px;
+  align-items: center;
+  width: 200px;
+  
+}
+img{
+  width: 50px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

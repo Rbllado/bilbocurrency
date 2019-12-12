@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import DetailCoin from "./../Coins/DetailCoin";
 
 class CoinsList extends Component {
   state = {
@@ -12,12 +13,13 @@ class CoinsList extends Component {
       .get("http://localhost:5000/coins")
       //   .headers(CMC_PRO_API_KEY = "3e18416b-942d-419a-89ab-8f8058b12944")
       .then(response => {
-
+        
         // In that way I put only the array of the fields into listOfCoins
-        const listOfCoins = response.data.data;
+        // If I am taking from the API
+        // const listOfCoins = response.data.data;
 
-        console.log(listOfCoins);
-        console.log(listOfCoins[0].name);
+        const listOfCoins = response.data;
+        console.log("ListofCoins", listOfCoins);
 
         this.setState({ listOfCoins });
       })
@@ -30,13 +32,18 @@ class CoinsList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="coin-container">
         {this.state.listOfCoins.map(coin => {
           return (
             //We take the key from database that is unique..
-            <div key={coin._id} className="Project">
+            <Link to={`/coins/detail/${coin._id}`} key={coin._id} className="coins" >
+                
               <h1>{coin.name}</h1>
-            </div>
+              <h3>{coin.symbol}</h3>
+              <h3>{coin.price}</h3>
+              <h3>{coin.tags}</h3>
+              <img src={coin.img} alt="coin"/>
+            </Link>
           );
         })}
       </div>
