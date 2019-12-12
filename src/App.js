@@ -4,6 +4,7 @@ import "./App.css";
 
 import CoinsList from "./components/Coins/CoinsList"
 import History from "./components/Coins/History"
+import DetailCoin from "./components/Coins/DetailCoin";
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -28,6 +29,8 @@ class App extends Component {
 
           <CoinsList  exact path="/coins"/>
           <History  path="/coins/updatehistory" />
+          {/* <DetailCoin path="/coins/detail/:id" /> */}
+          <Route path="/coins/detail/:id"  component={DetailCoin} />
         </Switch>
       </div>
     );
