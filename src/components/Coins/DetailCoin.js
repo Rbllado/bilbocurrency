@@ -27,16 +27,18 @@ class CoinsList extends Component {
       .catch(err => console.log(err));
   };
 
-//   send id to favorites
+  //   send id to favorites
   sendFavorite = () => {
     const id = this.props.match.params.id;
+    console.log("id de la moneda a añadir favoritos:" , id);
     axios
-    .post(`http://localhost:5000/favorites/${id}`)
-    .then( (result) => {
+    // to send the currentUSer to the backend
+      .post(`http://localhost:5000/favorites/${id}`, null , { withCredentials: true})
+      .then(result => {
         console.log(result);
-    })
-    .catch( (err) => console.log(err));
-  }
+      })
+      .catch(err => console.log(err));
+  };
 
   componentDidMount() {
     this.getCoin();
