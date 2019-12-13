@@ -21,6 +21,24 @@ class Favorites extends Component {
       .catch(err => console.log(err));
   };
 
+  removeFavorite = id => {
+    console.log(id);
+    axios
+      .post(`http://localhost:5000/favorites/remove/${id}`, null, {
+        withCredentials: true
+      })
+    //   .then(response => {
+    //     console.log(response);
+    //   })
+    //   .catch(err => console.log(err));
+
+    this.setState({
+      allFavorites: this.state.allFavorites.filter(elem => {
+        return elem._id !== id;
+      })
+    });
+  };
+
   componentDidMount() {
     this.getFavorites();
   }
@@ -28,12 +46,26 @@ class Favorites extends Component {
   render() {
     const { allFavorites } = this.state;
     return (
-      <div>
-        {allFavorites.length
-          ? allFavorites.map(favorite => {
-              return <h1>{favorite.name}</h1>;
-            })
-          : <h2>Heyyy</h2>}
+      <div className="favorite-coins">
+        {allFavorites.length ? (
+          allFavorites.map(favorite => {
+            return (
+              <div className="favorite-coin">
+                <h1>{favorite.name}</h1>
+                <button
+                  onClick={() => {
+                    this.removeFavorite(favorite._id);
+                  }}
+                  key={favorite._id}
+                >
+                  Eliminar
+                </button>
+              </div>
+            );
+          })
+        ) : (
+          <h2>Loading</h2>
+        )}
       </div>
     );
   }

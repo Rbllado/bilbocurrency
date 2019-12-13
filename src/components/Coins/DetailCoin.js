@@ -29,6 +29,7 @@ class CoinsList extends Component {
 
   //   send id to favorites
   sendFavorite = () => {
+      
     const id = this.props.match.params.id;
     console.log("id de la moneda a añadir favoritos:" , id);
     axios
