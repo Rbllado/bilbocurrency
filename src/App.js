@@ -5,6 +5,7 @@ import "./App.css";
 import CoinsList from "./components/Coins/CoinsList"
 import History from "./components/Coins/History"
 import DetailCoin from "./components/Coins/DetailCoin";
+import Favorites from "./components/Favorites";
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -26,11 +27,13 @@ class App extends Component {
           <AnonRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/private" component={Private} />
 
-
-          <CoinsList  exact path="/coins"/>
+        {/* Should be accesible for both site... now it's to try to add favorites */}
+          <PrivateRoute  exact path="/coins" component={ CoinsList }/>
           <History  path="/coins/updatehistory" />
           {/* <DetailCoin path="/coins/detail/:id" /> */}
-          <Route path="/coins/detail/:id"  component={DetailCoin} />
+          {/* <Route path="/coins/detail/:id"  component={DetailCoin} /> */}
+          <PrivateRoute path="/coins/detail/:id"  component={DetailCoin} />
+          <PrivateRoute path="/favorites" component={ Favorites }/>
         </Switch>
       </div>
     );

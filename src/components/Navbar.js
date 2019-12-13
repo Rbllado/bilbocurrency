@@ -32,6 +32,10 @@ class Navbar extends Component {
               {' '}
               <button>Update Hisotry</button>{' '}
             </Link>
+            <Link to="/favorites">
+              {' '}
+              <button>Favorites</button>{' '}
+            </Link>
           </div>
         )}
       </div>

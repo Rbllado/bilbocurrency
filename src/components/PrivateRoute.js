@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 
 function PrivateRoute({ component: Component, isLoggedin, isLoading, ...rest }) {
@@ -9,12 +9,17 @@ function PrivateRoute({ component: Component, isLoggedin, isLoading, ...rest }) 
   }
   else {
     return (
-      <Route
+        <Route
         {...rest}
         render={props =>
-          isLoggedin ? <Component {...props} /> : <Redirect to="/login" />
+          isLoggedin ? 
+          
+          <Component {...props} /> 
+          
+          : <Redirect to="/login" />
         }
       />
+      
     );
   }
 }
