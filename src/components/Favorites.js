@@ -11,15 +11,12 @@ class Favorites extends Component {
   getFavorites = () => {
     axios
       // to send the currentUSer to the backend
-    //   , null, { withCredentials: true }
-      .get(`http://localhost:5000/favorites/`)
+      .get(`http://localhost:5000/favorites/`, { withCredentials: true })
       .then(result => {
-
         console.log(result);
 
-        const allFavorites = result.data;
+        const allFavorites = result.data.favorites;
         this.setState({ allFavorites });
-
       })
       .catch(err => console.log(err));
   };
@@ -29,11 +26,14 @@ class Favorites extends Component {
   }
 
   render() {
+    const { allFavorites } = this.state;
     return (
       <div>
-        {this.state.allFavorites.map(favorite => {
-          return <h1>{favorite.name}</h1>;
-        })}
+        {allFavorites.length
+          ? allFavorites.map(favorite => {
+              return <h1>{favorite.name}</h1>;
+            })
+          : <h2>Heyyy</h2>}
       </div>
     );
   }
