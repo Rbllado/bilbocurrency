@@ -2,10 +2,15 @@ import React, { Component } from "react";
 import { render } from "@testing-library/react";
 import axios from "axios";
 
+
+
+
 class Favorites extends Component {
   state = {
     allFavorites: []
   };
+
+  
 
   //   send id to favorites
   getFavorites = () => {
@@ -27,10 +32,6 @@ class Favorites extends Component {
       .post(`http://localhost:5000/favorites/remove/${id}`, null, {
         withCredentials: true
       })
-    //   .then(response => {
-    //     console.log(response);
-    //   })
-    //   .catch(err => console.log(err));
 
     this.setState({
       allFavorites: this.state.allFavorites.filter(elem => {
@@ -52,11 +53,15 @@ class Favorites extends Component {
             return (
               <div className="favorite-coin">
                 <h1>{favorite.name}</h1>
+                <h2>{favorite.img}</h2>
+                <h3>{favorite.symbol}</h3>
+                <p>{favorite.description}</p>
                 <button
                   onClick={() => {
                     this.removeFavorite(favorite._id);
                   }}
                   key={favorite._id}
+                  
                 >
                   Eliminar
                 </button>

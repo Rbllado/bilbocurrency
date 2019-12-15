@@ -6,6 +6,8 @@ import CoinsList from "./components/Coins/CoinsList"
 import History from "./components/Coins/History"
 import DetailCoin from "./components/Coins/DetailCoin";
 import Favorites from "./components/Favorites";
+import AddOwnCoins from "./components/Coins/AddOwnCoins";
+import OwnCoins from "./components/Coins/OwnCoins";
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -28,7 +30,10 @@ class App extends Component {
           <PrivateRoute exact path="/private" component={Private} />
 
         {/* Should be accesible for both site... now it's to try to add favorites */}
-          <PrivateRoute  exact path="/coins" component={ CoinsList }/>
+          <Route  exact path="/coins" component={ CoinsList }/>
+          <PrivateRoute  exact path="/owncoins/add" component={ AddOwnCoins }/>
+          <PrivateRoute  exact path="/owncoins/" component={ OwnCoins }/>
+          
           <History  path="/coins/updatehistory" />
           {/* <DetailCoin path="/coins/detail/:id" /> */}
           {/* <Route path="/coins/detail/:id"  component={DetailCoin} /> */}

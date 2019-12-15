@@ -12,8 +12,6 @@ class History extends Component {
           //   .headers(CMC_PRO_API_KEY = "3e18416b-942d-419a-89ab-8f8058b12944")
           .then(response => {
 
-
-
             console.log(response);
             
               const historyCoins = response.data;

@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+
+const buttonFav = document.getElementsByClassName('btn-favorite');
+
 class CoinsList extends Component {
   state = {
     coin: {}
@@ -29,14 +32,17 @@ class CoinsList extends Component {
 
   //   send id to favorites
   sendFavorite = () => {
-      
+
     const id = this.props.match.params.id;
     console.log("id de la moneda a añadir favoritos:" , id);
+
+
     axios
     // to send the currentUSer to the backend
       .post(`http://localhost:5000/favorites/${id}`, null , { withCredentials: true})
       .then(result => {
         console.log(result);
+        buttonFav.style.background = 'red';
       })
       .catch(err => console.log(err));
   };
@@ -58,7 +64,7 @@ class CoinsList extends Component {
           <h4>{this.state.coin.symbol}</h4>
           <h4>{this.state.coin.web}</h4>
           <h4>{this.state.coin.tags}</h4>
-          <button onClick={this.sendFavorite}> Add to favorites </button>
+          <button onClick={this.sendFavorite} className="btn-favorite"> Add to favorites </button>
         </div>
       </div>
     );
