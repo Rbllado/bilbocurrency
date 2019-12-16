@@ -51,7 +51,7 @@ class AddOwnCoins extends Component {
     console.log("stado :", this.state);
 
     axios
-      .post("http://localhost:5000/owncoins/add", this.state, {
+      .post(`${process.env.REACT_APP_API_URL}/owncoins/add`, this.state, {
         withCredentials: true
       })
       .then(answer => {
