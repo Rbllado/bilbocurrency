@@ -34,15 +34,23 @@ box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
 border-radius: 30px;
 }
 
+.coins-item {
+  display: flex;
+  justify-content: center;
+  width: 33.33%;
+}
+
 .coins{
   display: flex;
   flex-direction: column;
   align-content: space-around;
   justify-content: space-between;
   text-align: center;
-  padding: 60px;
+  padding: 30px; 
   align-items: center;
-  width: 200px; 
+  margin-top: 20px;
+  width: 85%;
+  border: 1px solid #4a4a4a;
 }
 
 

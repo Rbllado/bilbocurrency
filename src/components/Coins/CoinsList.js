@@ -36,14 +36,18 @@ class CoinsList extends Component {
         {this.state.listOfCoins.map(coin => {
           return (
             //We take the key from database that is unique..
-            <Link to={`/coins/detail/${coin._id}`} key={coin._id} className="coins" >
+            //* classname = coins *
+            <div className="coins-item">
+              <Link to={`/coins/detail/${coin._id}`} key={coin._id} className="coins" >
                 
-              <h1>{coin.name}</h1>
-              <h3>{coin.symbol}</h3>
-              <h3>{coin.price}</h3>
-              <h3>{coin.tags}</h3>
-              <img src={coin.img} alt="coin"/>
-            </Link>
+                <h1>{coin.name}</h1>
+                <h3>{coin.symbol}</h3>
+                <h3>{coin.price}</h3>
+                <h3>{coin.tags}</h3>
+                <img src={coin.img} alt="coin"/>
+              </Link>
+            </div>
+            
           );
         })}
       </div>

@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import "./App.css";
 
 
+
 import CoinsList from "./components/Coins/CoinsList"
 import History from "./components/Coins/History"
 import DetailCoin from "./components/Coins/DetailCoin";
