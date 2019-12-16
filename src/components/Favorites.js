@@ -16,7 +16,7 @@ class Favorites extends Component {
   getFavorites = () => {
     axios
       // to send the currentUSer to the backend
-      .get(`http://localhost:5000/favorites/`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/favorites/`, { withCredentials: true })
       .then(result => {
         console.log(result);
 
