@@ -17,7 +17,7 @@ class CoinsList extends Component {
     console.log(id);
 
     axios
-      .post(`http://localhost:5000/coins/detail/${id}`)
+      .post(`${process.env.REACT_APP_API_URL}/coins/detail/${id}`)
       //   .get(`http://localhost:5000/coins/detail/5`)
       //   .headers(CMC_PRO_API_KEY = "3e18416b-942d-419a-89ab-8f8058b12944")
       .then(response => {
@@ -39,7 +39,7 @@ class CoinsList extends Component {
 
     axios
     // to send the currentUSer to the backend
-      .post(`http://localhost:5000/favorites/${id}`, null , { withCredentials: true})
+      .post(`${process.env.REACT_APP_API_URL}/favorites/${id}`, null , { withCredentials: true})
       .then(result => {
         console.log(result);
         buttonFav.style.background = 'red';
