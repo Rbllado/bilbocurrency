@@ -4,6 +4,7 @@ import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AuthProvider from './lib/AuthProvider';
 
+
 ReactDOM.render(
   <Router>
     <AuthProvider>

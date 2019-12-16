@@ -8,7 +8,9 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend, 
+  PieChart, 
+  Pie
 } from "recharts";
 
 const buttonFav = document.getElementsByClassName("btn-favorite");
@@ -93,9 +95,6 @@ class CoinsList extends Component {
           return {value, time: i}
         });
 
-        
-        
-
         this.setState({historyCoin});
       })
       .catch(err => console.log(err));
@@ -131,8 +130,9 @@ class CoinsList extends Component {
                 left: 20,
                 bottom: 5
               }}
+              zoom = "5X"
             >
-              <CartesianGrid strokeDasharray="4 4" />
+              <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="time" />
               <YAxis />
               <Tooltip />
@@ -142,8 +142,14 @@ class CoinsList extends Component {
                 dataKey="value"
                 stroke="#8884d8"
               />
-              {/* <Line type="monotone" dataKey="value" stroke="#82ca9d" /> */}
+              <Line type="monotone" dataKey="value" stroke="#82ca9d" />
             </LineChart>
+            
+           /*{ <PieChart width={730} height={250}>
+              <Pie data={this.state.historyCoin} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} fill="#8884d8"  label/>
+              
+          </PieChart> }*/
+          
             ) : (<h2>Loading</h2>)
           }
 

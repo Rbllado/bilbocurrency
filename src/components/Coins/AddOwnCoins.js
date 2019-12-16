@@ -22,26 +22,6 @@ class AddOwnCoins extends Component {
     this.setState({ [name]: value });
   };
 
-  // this method handles just the file upload
-  // handleFileUpload = e => {
-  //   console.log("The file to be uploaded is: ", e.target.files[0]);
-
-  //   const uploadData = new FormData();
-  //   // imageUrl => this name has to be the same as in the model since we pass
-  //   // req.body to .create() method when creating a new thing in '/api/things/create' POST route
-  //   uploadData.append("img", e.target.files[0]);
-
-  //   // service.handleUpload(uploadData)
-  //   // .then(response => {
-  //   //     // console.log('response is: ', response);
-  //   //     // after the console.log we can see that response carries 'secure_url' which we can use to update the state
-  //   //     this.setState({ imageUrl: response.secure_url });
-  //   //   })
-  //   //   .catch(err => {
-  //   //     console.log("Error while uploading the file: ", err);
-  //   //   });
-  // };
-
   // submit the information to the backend
   handleSubmit = e => {
     e.preventDefault();
@@ -71,10 +51,43 @@ class AddOwnCoins extends Component {
     });
   };
 
+  uploadImg = (e) =>{
+
+    // console.log("target: ", e.target.files[0]);
+    
+    // const file = e.target.files[0];
+    // console.log("File:",file);
+    
+    // const uploadData = new FormData();
+    // // img the same from the backend and into the file const.
+    // uploadData.append("img", file);
+    
+    const file = e.target.files[0];
+    const uploadData = new FormData()
+    uploadData.append('img', file);
+    
+    console.log("I send this one:", uploadData);
+
+    axios
+    .post(`${process.env.REACT_APP_API_URL}/owncoins/image`, uploadData)
+    .then( (imagen) => {
+      // const img = imagen.data;
+      console.log("image", imagen);
+      
+      this.setState({imagen})
+
+    })
+    .catch( (err) => console.log(err));
+    
+  }
+
+
+
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        {/* To take the image able to read the file */}
+        <form onSubmit={this.handleSubmit} encType="multipart/form-data">
           <label>Name for the coin</label>
           <input
             type="text"
@@ -116,10 +129,10 @@ class AddOwnCoins extends Component {
           <input type="file" onChange={this.handleFileUpload} /> */}
 
           <input
-            type="text"
+            type="file"
             name="img"
-            value={this.state.img}
-            onChange={this.handleInput}
+            //value={this.state.img}
+            onChange={this.uploadImg}
           />
           <label>Description of the coin</label>
 
@@ -142,7 +155,7 @@ class AddOwnCoins extends Component {
           {/* <label>File:</label>
         <input type="file"/> */}
 
-          <button>Submit</button>
+          <button className="btn btn-primary">Submit</button>
         </form>
       </div>
     );
