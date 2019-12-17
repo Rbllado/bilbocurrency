@@ -5,7 +5,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-
+import index from "./pages/index"
 import CoinsList from "./components/Coins/CoinsList"
 import History from "./components/Coins/History"
 import DetailCoin from "./components/Coins/DetailCoin";
@@ -29,9 +29,11 @@ class App extends Component {
         <Navbar />
 
         <Switch>
+        <AnonRoute exact path="/" component={index} />
+          
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
-          <PrivateRoute exact path="/private" component={Private} />
+          {/* <PrivateRoute exact path="/private" component={OwnCoins} /> */}
           <PrivateRoute path="/editprofile"  component={EditProfile} />
 
         {/* Should be accesible for both site... now it's to try to add favorites */}
