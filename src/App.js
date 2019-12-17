@@ -13,6 +13,7 @@ import Favorites from "./components/Favorites";
 import AddOwnCoins from "./components/Coins/AddOwnCoins";
 import OwnCoins from "./components/Coins/OwnCoins";
 import EditProfile from "./components/EditProfile"
+import Default from "./pages/Default"
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -33,7 +34,6 @@ class App extends Component {
           
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
-          {/* <PrivateRoute exact path="/private" component={OwnCoins} /> */}
           <PrivateRoute path="/editprofile"  component={EditProfile} />
 
         {/* Should be accesible for both site... now it's to try to add favorites */}
@@ -46,6 +46,8 @@ class App extends Component {
           {/* <Route path="/coins/detail/:id"  component={DetailCoin} /> */}
           <PrivateRoute path="/coins/detail/:id"  component={DetailCoin} />
           <PrivateRoute path="/favorites" component={ Favorites }/>
+          <Route component={ Default }/>
+
         </Switch>
       </div>
     );

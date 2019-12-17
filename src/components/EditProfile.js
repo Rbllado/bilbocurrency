@@ -41,14 +41,14 @@ class EditProfile extends Component {
   render() {
     return (
       <div>
-        <div className="container">
+        <div className="container-profile">
           {/* <!-- edit form column --> */}
           <div className="col-lg-12 text-lg-center">
             <h2>Edit Profile</h2>
             <br />
             <br />
           </div>
-          <div className="col-lg-8 push-lg-4 personal-info">
+          <div className="col-lg-6 push-lg-4 personal-info edit-profile">
             <form onSubmit={this.handleSubmit}>
               <div className="form-group row">
                 <label className="col-lg-3 col-form-label form-control-label">

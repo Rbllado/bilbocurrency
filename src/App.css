@@ -69,6 +69,15 @@ border-radius: 30px;
   margin: auto;
 }
 
+.form-owncoin{
+  width: 90%;
+  -webkit-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+  box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+  margin:0 auto;
+  padding-bottom: 20px;
+}
+
 .favorites-cards{
   margin: 5% auto;
   -webkit-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
@@ -88,6 +97,14 @@ border-radius: 30px;
   /* background-image: url("https://cdn.pixabay.com/photo/2018/02/04/17/39/crypto-currency-3130381__340.jpg");
   background-repeat: no-repeat;
   background-size: cover; */
+}
+
+.edit-profile{
+  margin: 0 auto;
+}
+
+.container-profile{
+  
 }
 
 
@@ -116,9 +133,9 @@ border-radius: 30px;
 
 
 
-img{
+/* img{
   width: 50px;
-}
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

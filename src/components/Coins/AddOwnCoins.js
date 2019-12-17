@@ -82,106 +82,140 @@ class AddOwnCoins extends Component {
   render() {
     return (
       <div className="backkground-container">
-        <br/>
-        <div className="all-form">
-          <div className="container-owncoin">
-            {/* To take the image able to read the file */}
-            <br />
-            <form onSubmit={this.handleSubmit} encType="multipart/form-data">
-              <div className="form-group">
-                <h4 htmlfor="exampleFormControlInput1">Name of the coin</h4>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="name"
-                  value={this.state.name}
-                  onChange={this.handleInput}
-                  placeholder="name of your new coin"
-                />
-              </div>
-              <div className="form-group">
-                <h4 htmlFor="exampleFormControlInput1">Price of the coin</h4>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="price"
-                  value={this.state.price}
-                  onChange={this.handleInput}
-                  placeholder="Type the price of your coin"
-                />
-              </div>
-              <div className="form-group">
-                <h4 htmlFor="exampleFormControlSelect1">Is it minable?</h4>
-                <select
-                  className="form-control"
-                  name="type"
-                  value={this.state.type}
-                  onChange={this.handleInput}
-                  id="exampleFormControlSelect2"
-                >
-                  <option>Minable</option>
-                  <option>Not minable</option>
-                </select>
+        <br />
+        <div className="form-owncoin">
+          {/* To take the image able to read the file */}
+          <br />
+          <div className="col-lg-6 push-lg-4 personal-info edit-profile">
+            <form onSubmit={this.handleSubmit}>
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label">
+                  Name of the coin
+                </label>
+                <div className="col-lg-8">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.handleInput}
+                    placeholder="name of your new coin"
+                  />
+                </div>
               </div>
 
-              <div className="form-group">
-                <h4 htmlFor="id1">Put an id for your coin</h4>
-                <input
-                  className="form-control"
-                  type="number"
-                  name="id"
-                  value={this.state.id}
-                  onChange={this.handleInput}
-                ></input>
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label">
+                  Price of the coin
+                </label>
+                <div className="col-lg-8">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="price"
+                    value={this.state.price}
+                    onChange={this.handleInput}
+                    placeholder="Type the price of your coin"
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label">
+                  Is it minable?
+                </label>
+                <div className="col-lg-8">
+                  <select
+                    className="form-control"
+                    name="type"
+                    value={this.state.type}
+                    onChange={this.handleInput}
+                    id="exampleFormControlSelect2"
+                  >
+                    <option>Minable</option>
+                    <option>Not minable</option>
+                  </select>
+                </div>
               </div>
 
-              <div className="form-group">
-                <h4 htmlfor="symbol">Which is your symbol?</h4>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="symbol"
-                  value={this.state.symbol}
-                  onChange={this.handleInput}
-                ></input>
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label">
+                  Put an id for your coin
+                </label>
+                <div className="col-lg-8">
+                  <input
+                    className="form-control"
+                    type="number"
+                    name="id"
+                    value={this.state.id}
+                    onChange={this.handleInput}
+                  ></input>
+                </div>
               </div>
 
-              <div className="form-group">
-                <h4 htmlFor="symbol">Choose your image for your Image</h4>
-                <input
-                  className="form-control-file"
-                  type="file"
-                  name="img"
-                  //value={this.state.img}
-                  onChange={this.uploadImg}
-                ></input>
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label">
+                  Which is your symbol?
+                </label>
+                <div className="col-lg-8">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="symbol"
+                    value={this.state.symbol}
+                    onChange={this.handleInput}
+                  ></input>
+                </div>
               </div>
 
-              <div className="form-group">
-                <h4 htmlFor="symbol">Write your website</h4>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="web"
-                  value={this.state.web}
-                  onChange={this.handleInput}
-                  placeholder="http://wwww.example.com"
-                ></input>
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label">
+                  Choose your image for your Image
+                </label>
+                <div className="col-lg-8">
+                  <input
+                    className="form-control-file"
+                    type="file"
+                    name="img"
+                    //value={this.state.img}
+                    onChange={this.uploadImg}
+                  ></input>
+                </div>
               </div>
 
-              <div className="form-group">
-                <h4 htmlFor="exampleFormControlTextarea1">
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label">
+                  Write your website
+                </label>
+                <div className="col-lg-8">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="web"
+                    value={this.state.web}
+                    onChange={this.handleInput}
+                    placeholder="http://wwww.example.com"
+                  ></input>
+                </div>
+              </div>
+
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label">
                   Description of the coin
-                </h4>
-                <textarea
-                  className="form-control"
-                  name="description"
-                  value={this.state.description}
-                  onChange={this.handleInput}
-                  rows="3"
-                ></textarea>
-                <br />
-                <div className="col-md-12">
+                </label>
+                <div className="col-lg-8">
+                  <textarea
+                    className="form-control"
+                    name="description"
+                    value={this.state.description}
+                    onChange={this.handleInput}
+                    rows="3"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label"></label>
+                <div className="col-lg-9">
                   <button type="button" className="btn btn-primary btn-lg">
                     Submit
                   </button>
