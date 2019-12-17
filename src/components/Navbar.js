@@ -59,6 +59,12 @@ class Navbar1 extends Component {
                     <a className="nav-link">Own Coin List</a>{" "}
                   </Link>
                 </Nav.Link>
+                <Nav.Link>
+                  <Link to="/editprofile/">
+                    {" "}
+                    <a className="nav-link">Edit profile</a>{" "}
+                  </Link>
+                </Nav.Link>
 
                 {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                   <NavDropdown.Item></NavDropdown.Item>
@@ -73,7 +79,7 @@ class Navbar1 extends Component {
                     Separated link
                   </NavDropdown.Item>
                 </NavDropdown> */}
-                
+
               </Nav>
             ) : (
               <Nav className="mr-auto">

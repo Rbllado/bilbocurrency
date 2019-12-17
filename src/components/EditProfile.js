@@ -3,23 +3,20 @@ import axios from "axios";
 
 class EditProfile extends Component {
   state = {
-    name: "",
+    username: "",
     password: "",
     newpassword: ""
   };
 
+  // Keep the information into the state
+  handleInput = e => {
+    // take the value of every name and put the value of each one.
+    const { name, value } = e.target;
 
-
-
-
-
-
-
-
-
+    this.setState({ [name]: value });
+  };
 
   handleSubmit = e => {
-
     e.preventDefault();
 
     console.log("estado :", this.state);
@@ -29,73 +26,81 @@ class EditProfile extends Component {
         withCredentials: true
       })
       .then(answer => {
-        // console.log('Mirar que lle');
+        console.log("Respuesta del backend:", answer);
         
       })
       .catch(err => console.log(err));
 
     this.setState({
-      name: "",
-      password:"",
+      username: "",
+      password: "",
       newpassword: ""
     });
   };
 
-
-
-
-
-
   render() {
     return (
       <div>
-        <div class="container">
+        <div className="container">
           {/* <!-- edit form column --> */}
-          <div class="col-lg-12 text-lg-center">
+          <div className="col-lg-12 text-lg-center">
             <h2>Edit Profile</h2>
             <br />
             <br />
           </div>
-          <div class="col-lg-8 push-lg-4 personal-info">
-            <form  onSubmit={this.handleSubmit}>
-              <div class="form-group row">
-                <label class="col-lg-3 col-form-label form-control-label">
-                  Nombre
+          <div className="col-lg-8 push-lg-4 personal-info">
+            <form onSubmit={this.handleSubmit}>
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label">
+                  Username
                 </label>
-                <div class="col-lg-9">
-                  <input class="form-control" type="text" value={this.state.name} onClick={this.handleInput} />
+                <div className="col-lg-9">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="username"
+                    value={this.state.username}
+                    onChange={this.handleInput}
+                  />
                 </div>
               </div>
 
-              <div class="form-group row">
-                <label class="col-lg-3 col-form-label form-control-label">
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label">
                   Password
                 </label>
-                <div class="col-lg-9">
+                <div className="col-lg-9">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="password"
-                    onClick={this.handleInput}
+                    name="password"
                     value={this.state.password}
+                    onChange={this.handleInput}
                   />
                 </div>
               </div>
-              <div class="form-group row">
-                <label class="col-lg-3 col-form-label form-control-label">
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label">
                   New password
                 </label>
-                <div class="col-lg-9">
-                  <input class="form-control" type="password" onClick={this.handleInput} value={this.state.newpassword} />
+                <div className="col-lg-9">
+                  <input
+                    className="form-control"
+                    type="password"
+                    name="newpassword"
+                    value={this.state.newpassword}
+                    onChange={this.handleInput}
+                  />
                 </div>
               </div>
-              <div class="form-group row">
-                <label class="col-lg-3 col-form-label form-control-label"></label>
-                <div class="col-lg-9">
-                  <input
-                    type="button"
-                    class="btn btn-primary"
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label"></label>
+                <div className="col-lg-9">
+                  <button
+                    className="btn btn-primary"
                     value="Save Changes"
-                  />
+                  >
+                  Save Changes</button>
                 </div>
               </div>
             </form>
