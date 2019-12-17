@@ -25,10 +25,9 @@ class AddOwnCoins extends Component {
   // submit the information to the backend
   handleSubmit = e => {
     e.preventDefault();
-
     // const {name, price, type, id, symbol, img, description, web, history} = this.state;
 
-    console.log("stado :", this.state);
+    console.log("estado :", this.state);
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/owncoins/add`, this.state, {
@@ -62,6 +61,8 @@ class AddOwnCoins extends Component {
     // uploadData.append("img", file);
 
     const file = e.target.files[0];
+    console.log(file);
+
     const uploadData = new FormData();
     uploadData.append("img", file);
 
@@ -80,106 +81,115 @@ class AddOwnCoins extends Component {
 
   render() {
     return (
-      <div className="container">
-        {/* To take the image able to read the file */}
-        <form
-          onSubmit={this.handleSubmit}
-          encType="multipart/form-data"
-          className="Form"
-        >
-          <div className="row">
-            <div className="col-lg-5">
-              <label className="label label-default">Name for the coin:</label>
-              <input
-                type="text"
-                name="name"
-                value={this.state.name}
-                onChange={this.handleInput}
-              />
-            </div>
+      <div className="backkground-container">
+        <br/>
+        <div className="all-form">
+          <div className="container-owncoin">
+            {/* To take the image able to read the file */}
+            <br />
+            <form onSubmit={this.handleSubmit} encType="multipart/form-data">
+              <div className="form-group">
+                <h4 htmlfor="exampleFormControlInput1">Name of the coin</h4>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="name"
+                  value={this.state.name}
+                  onChange={this.handleInput}
+                  placeholder="name of your new coin"
+                />
+              </div>
+              <div className="form-group">
+                <h4 htmlFor="exampleFormControlInput1">Price of the coin</h4>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="price"
+                  value={this.state.price}
+                  onChange={this.handleInput}
+                  placeholder="Type the price of your coin"
+                />
+              </div>
+              <div className="form-group">
+                <h4 htmlFor="exampleFormControlSelect1">Is it minable?</h4>
+                <select
+                  className="form-control"
+                  name="type"
+                  value={this.state.type}
+                  onChange={this.handleInput}
+                  id="exampleFormControlSelect2"
+                >
+                  <option>Minable</option>
+                  <option>Not minable</option>
+                </select>
+              </div>
 
-            <div className="col-md-5">
-              <label>Price</label>
-              <input
-                type="text"
-                name="price"
-                value={this.state.price}
-                onChange={this.handleInput}
-              />
-            </div>
+              <div className="form-group">
+                <h4 htmlFor="id1">Put an id for your coin</h4>
+                <input
+                  className="form-control"
+                  type="number"
+                  name="id"
+                  value={this.state.id}
+                  onChange={this.handleInput}
+                ></input>
+              </div>
 
-            <div className="col-md-5">
-              <label>Is it Minable?</label>
-              <input
-                type="text"
-                name="type"
-                value={this.state.type}
-                onChange={this.handleInput}
-              />
-            </div>
+              <div className="form-group">
+                <h4 htmlfor="symbol">Which is your symbol?</h4>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="symbol"
+                  value={this.state.symbol}
+                  onChange={this.handleInput}
+                ></input>
+              </div>
 
-            <div className="col-md-5">
-              <label>Put an ID:</label>
-              <input
-                type="number"
-                name="id"
-                value={this.state.id}
-                onChange={this.handleInput}
-              />
-            </div>
+              <div className="form-group">
+                <h4 htmlFor="symbol">Choose your image for your Image</h4>
+                <input
+                  className="form-control-file"
+                  type="file"
+                  name="img"
+                  //value={this.state.img}
+                  onChange={this.uploadImg}
+                ></input>
+              </div>
 
-            <div className="col-md-5">
-              <label>Which is your symbol?</label>
-              <input
-                type="text"
-                name="symbol"
-                value={this.state.symbol}
-                onChange={this.handleInput}
-              />
-            </div>
+              <div className="form-group">
+                <h4 htmlFor="symbol">Write your website</h4>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="web"
+                  value={this.state.web}
+                  onChange={this.handleInput}
+                  placeholder="http://wwww.example.com"
+                ></input>
+              </div>
 
-            {/* <label>Image:</label>
-          <input type="file" onChange={this.handleFileUpload} /> */}
-
-            <div className="col-md-5">
-              <input
-                type="file"
-                name="img"
-                //value={this.state.img}
-                onChange={this.uploadImg}
-              />
-            </div>
-
-            <div className="col-md-5">
-              <label>Description of the coin</label>
-
-              <input
-                type="text"
-                name="description"
-                value={this.state.description}
-                onChange={this.handleInput}
-              />
-            </div>
-
-            <div className="col-md-5">
-              <label>web page</label>
-
-              <input
-                type="text"
-                name="web"
-                value={this.state.web}
-                onChange={this.handleInput}
-              />
-            </div>
-            {/* <label>File:</label>
-        <input type="file"/> */}
-            <div className="col-md-12">
-            <button type="button" className="btn btn-primary btn-lg">
-              Submit
-            </button>
-            </div>
+              <div className="form-group">
+                <h4 htmlFor="exampleFormControlTextarea1">
+                  Description of the coin
+                </h4>
+                <textarea
+                  className="form-control"
+                  name="description"
+                  value={this.state.description}
+                  onChange={this.handleInput}
+                  rows="3"
+                ></textarea>
+                <br />
+                <div className="col-md-12">
+                  <button type="button" className="btn btn-primary btn-lg">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     );
   }

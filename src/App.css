@@ -51,7 +51,36 @@ border-radius: 30px;
   margin-top: 20px;
   width: 85%;
   border: 1px solid #4a4a4a;
+  overflow: hidden;
 }
+
+.container-owncoin{
+  width: 30%;
+  display: inline-block;
+
+}
+.all-form{
+  margin-top: 40px;
+  width: 60%;
+  -webkit-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+  box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+  justify-content: center;
+  margin: auto;
+}
+
+
+.show{
+  display: block;
+}
+
+
+/* .backkground-container{
+  background-image: url("https://i0.wp.com/criptotendencia.com/wp-content/uploads/2019/03/ABC-Mundo-Crypto-CriptoTendencia.jpg?resize=890%2C450&ssl=1");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+} */
 
 
 .detail-coin{

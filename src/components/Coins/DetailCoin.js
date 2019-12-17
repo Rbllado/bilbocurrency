@@ -19,7 +19,8 @@ var btnPressed = false;
 class CoinsList extends Component {
   state = {
     coin: {},
-    historyCoin: []
+    historyCoin: [],
+    isInFavorites: false
   };
 
   getCoin = () => {
@@ -73,8 +74,10 @@ class CoinsList extends Component {
         withCredentials: true
       })
       .then(result => {
-        console.log(result);
-        buttonFav.style.background = "red";
+        console.log("resultado", result);
+        this.setState({isInFavorites: true});
+        console.log("Boolean",this.state.isInFavorites);
+        
       })
       .catch(err => console.log(err));
   };
@@ -149,11 +152,11 @@ class CoinsList extends Component {
               <Pie data={this.state.historyCoin} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} fill="#8884d8"  label/>
               
           </PieChart> }*/
-          
+
             ) : (<h2>Loading</h2>)
           }
 
-            <button onClick={this.pressButton} className="chart-btn">Show Chart</button>
+            <button onClick={this.pressButton} className="chart-btn btn btn-success">Show Chart</button>
 
             
 
@@ -165,10 +168,13 @@ class CoinsList extends Component {
           <h4>{this.state.coin.symbol}</h4>
           <h4>{this.state.coin.web}</h4>
           <h4>{this.state.coin.tags}</h4>
-          <button onClick={this.sendFavorite} className="btn-favorite">
-            {" "}
-            Add to favorites{" "}
-          </button>
+          
+        {
+          (!this.state.isInFavorites) 
+          ?<button onClick={this.sendFavorite} className="btn btn-primary">Add to favorites</button>
+          :<button disabled className="btn btn-secondary">Already favourites</button>
+        } 
+
         </div>
       </div>
     );

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import "./App.css";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 
@@ -10,6 +12,7 @@ import DetailCoin from "./components/Coins/DetailCoin";
 import Favorites from "./components/Favorites";
 import AddOwnCoins from "./components/Coins/AddOwnCoins";
 import OwnCoins from "./components/Coins/OwnCoins";
+import EditProfile from "./components/EditProfile"
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -24,12 +27,12 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <h1>Basic React Authentication</h1>
 
         <Switch>
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/private" component={Private} />
+          <PrivateRoute path="/editprofile"  component={EditProfile} />
 
         {/* Should be accesible for both site... now it's to try to add favorites */}
           <Route  exact path="/coins" component={ CoinsList }/>

@@ -69,7 +69,8 @@ class Favorites extends Component {
             );
           })
         ) : (
-          <h2>Loading</h2>
+          /* I can change to gif*/
+          <h2>Not favorites coins</h2>
         )}
       </div>
     );
