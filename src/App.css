@@ -69,6 +69,18 @@ border-radius: 30px;
   margin: auto;
 }
 
+.favorites-cards{
+  margin: 5% auto;
+  -webkit-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+  box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+
+}
+
+.card .favorite-logo{
+  width: 100px;
+    margin: 0 auto;
+}
 
 .background-index img{
   width: 100%;

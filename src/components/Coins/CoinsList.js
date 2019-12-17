@@ -36,43 +36,53 @@ class CoinsList extends Component {
             //We take the key from database that is unique..
             //* classname = coins *
             <div className="coins-item">
-              {/* <Link
-                to={`/coins/detail/${coin._id}`}
-                key={coin._id}
-                className="coins"
-              >
-                <h1>{coin.name}</h1>
-                <h3>{coin.symbol}</h3>
-                <h3>{coin.price}</h3>
-                <h3>{coin.tags}</h3>
-                <img src={coin.img} alt="coin" />
-              </Link> */}
 
-{/* Try with card decker */}
               
-                  <div
-                    class="card coins "
+              {/* <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div> */}
+              {/* Try with card decker */}
+
+              <div
+                class="card coins "
+                key={coin._id}
+                style={{ width: "12rem" }}
+              >
+                <img class="card-img-top" src={coin.img} alt="Card" />
+                <div class="card-body">
+                  <h5 class="card-title">{coin.name}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{coin.price}</li>
+                  <li class="list-group-item">{coin.tags}</li>
+                  <li class="list-group-item">{coin.symbol}</li>
+                </ul>
+                <div class="card-body">
+                  <Link
+                    to={`/coins/detail/${coin._id}`}
                     key={coin._id}
-                    style={{ width: "12rem" }}
+                    className="card-link"
                   >
-                    <img class="card-img-top" src={coin.img} alt="Card" />
-                    <div class="card-body">
-                      <h5 class="card-title">{coin.name}</h5>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">{coin.price}</li>
-                      <li class="list-group-item">{coin.tags}</li>
-                      <li class="list-group-item">{coin.symbol}</li>
-                    </ul>
-                    <div class="card-body">
-                      <Link
-                        to={`/coins/detail/${coin._id}`}
-                        key={coin._id}
-                        className="card-link"
-                      >
-                        Details
-                      </Link>
-                    </div>
+                    Details
+                  </Link>
+                </div>
               </div>
             </div>
           );
