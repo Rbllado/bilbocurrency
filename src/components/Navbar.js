@@ -21,18 +21,16 @@ class Navbar1 extends Component {
     return (
       <div>
         <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="#home">Home</Navbar.Brand>
+          {/* <Navbar.Brand href="#home">Home</Navbar.Brand> */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             {isLoggedin ? (
               <Nav className="mr-auto">
+          <Nav.Link href="#home"> <a className="nav-link">  Welcome : {user.username}</a></Nav.Link>
                 <Nav.Link>
-                  <p>username: {user.username}</p>
-                  <span>
                     <a className="nav-link" onClick={logout}>
-                      Logout
+                     Logout
                     </a>
-                  </span>
                 </Nav.Link>
                 <Nav.Link>
                   <Link to="/coins">
@@ -111,14 +109,6 @@ class Navbar1 extends Component {
               </Nav>
             )}
 
-            <Form inline>
-              <FormControl
-                type="text"
-                placeholder="Search"
-                className="mr-sm-2"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
           </Navbar.Collapse>
         </Navbar>
       </div>

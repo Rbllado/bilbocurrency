@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 
 class CoinsList extends Component {
   state = {
-    listOfCoins: []
+    name: "",
+    listOfCoins: [],
+    copyListOfCoins: []
   };
 
   getAllCoins = () => {
@@ -19,10 +21,30 @@ class CoinsList extends Component {
         const listOfCoins = response.data;
         console.log("ListofCoins", listOfCoins);
 
-        this.setState({ listOfCoins });
+        const copyListOfCoins = [...listOfCoins]
+
+        this.setState({ listOfCoins, copyListOfCoins: copyListOfCoins.slice(0,20) });
+
+        
       })
       .catch(err => console.log(err));
   };
+
+  handleInput = e => {
+    // take the value of every name and put the value of each one.
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+
+    const copyListOfCoins = this.state.listOfCoins.filter((elem) => {
+      return elem.name.toLowerCase().includes(e.target.value);
+    })
+
+    
+
+    this.setState({copyListOfCoins});
+
+  };
+
 
   componentDidMount() {
     this.getAllCoins();
@@ -31,14 +53,19 @@ class CoinsList extends Component {
   render() {
     return (
       <div className="coin-container">
-        {this.state.listOfCoins.map(coin => {
-          return (
-            //We take the key from database that is unique..
-            //* classname = coins *
-            <div className="coins-item">
+        <div className="col-lg-12">
+          <input
+            className="form-control"
+            type="text"
+            name="name"
+            value={this.state.name}
+            onChange={this.handleInput}
+            placeholder="coin to search"
+          />
+        </div>
 
-              
-              {/* <div class="row">
+
+        {/* <div class="row">
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
@@ -58,6 +85,16 @@ class CoinsList extends Component {
     </div>
   </div>
 </div> */}
+
+
+
+
+
+        {this.state.copyListOfCoins.map(coin => {
+          return (
+            //We take the key from database that is unique..
+            //* classname = coins *
+            <div className="coins-item">
               {/* Try with card decker */}
 
               <div

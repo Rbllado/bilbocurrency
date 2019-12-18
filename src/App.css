@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+body{
+  font-family: 'Roboto', sans-serif !important;
+}
 
 .App-logo {
   height: 40vmin;
@@ -99,8 +102,31 @@ border-radius: 30px;
   background-size: cover; */
 }
 
+/* edit profile page */
+
 .edit-profile{
   margin: 0 auto;
+}
+
+
+/* Description page */
+.description-detail{
+  text-align: justify;
+  margin: 4%;
+}
+
+.name-detail{
+  margin-top: 30px;
+}
+.price-detail{
+  margin-top: 30px;
+}
+.symbol-detail{
+  margin-top: 30px;
+}
+.tags-detail{
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .container-profile{

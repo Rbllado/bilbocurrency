@@ -129,6 +129,7 @@ class CoinsList extends Component {
 
   componentDidMount() {
     this.getCoin();
+    // this.setState({historyCoin: null})
   }
 
   render() {
@@ -169,7 +170,7 @@ class CoinsList extends Component {
               
           </PieChart> }*/
 
-              <h2>Loading</h2>
+              null
             )}
 
             <button
@@ -179,12 +180,12 @@ class CoinsList extends Component {
               Show Chart
             </button>
           </div>
-          <h2>{this.state.coin.name}</h2>
-          <p>{this.state.coin.description}</p>
-          <h3>{this.state.coin.price}</h3>
-          <h4>{this.state.coin.symbol}</h4>
-          <h4>{this.state.coin.web}</h4>
-          <h4>{this.state.coin.tags}</h4>
+          <h2 className="name-detail">{this.state.coin.name}</h2>
+          <p className="description-detail">{this.state.coin.description}</p>
+          <h3 className="price-detail">${this.state.coin.price}</h3>
+          <h4 className="symbol-detail">Symbol: {this.state.coin.symbol}</h4>
+          <a href={this.state.coin.web}>Link to the webpage</a>
+          <h4 className="tags-detail">{this.state.coin.tags}</h4>
 
           {!this.state.isInFavorites ? (
             <button onClick={this.sendFavorite} className="btn btn-primary">

@@ -56,7 +56,7 @@ class Favorites extends Component {
             <h5 className="card-title">{favorite.symbol}</h5>
             <h5 className="card-title">Euros: {favorite.price}</h5>
             
-            <p className="card-text">
+            <p className="card-text description-detail">
              {favorite.description}
             </p>
             <p className="card-text">
@@ -65,6 +65,7 @@ class Favorites extends Component {
                     this.removeFavorite(favorite._id);
                   }}
                   key={favorite._id}
+                  className="btn btn-danger"
                   
                 >
                   Eliminar
