@@ -27,17 +27,15 @@ class CoinsList extends Component {
   };
 
   getMinMax = () => {
-    
     let copyHistoryCoin = [...arrHistory];
-    
+
     const arrMin = Math.min(...copyHistoryCoin);
-    
+
     const arrMax = Math.max(...copyHistoryCoin);
 
     const arrMinMax = [];
 
-    arrMinMax.push(arrMin + (arrMin/2), arrMax +(arrMax*2));
-
+    arrMinMax.push(arrMin + arrMin / 2, arrMax + arrMax * 2);
 
     this.setState({ arrMinMax });
   };
@@ -50,13 +48,9 @@ class CoinsList extends Component {
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/coins/detail/${id}`)
-      //   .get(`http://localhost:5000/coins/detail/5`)
-      //   .headers(CMC_PRO_API_KEY = "3e18416b-942d-419a-89ab-8f8058b12944")
       .then(response => {
         // I will have all the information of a coin.
         const coin = response.data;
-        console.log("coin", coin.name);
-
         this.setState({ coin });
       })
       .catch(err => console.log(err));
@@ -67,12 +61,8 @@ class CoinsList extends Component {
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/coins/history/${symbol}`)
-      //   .get(`http://localhost:5000/coins/detail/5`)
-      //   .headers(CMC_PRO_API_KEY = "3e18416b-942d-419a-89ab-8f8058b12944")
       .then(response => {
-        // I will have all the information of a coin.
-
-        console.log("coin", response.symbol);
+        // I will have all the history prices of a coin
 
         const historyCoin = response.symbol;
 
@@ -81,7 +71,7 @@ class CoinsList extends Component {
       .catch(err => console.log(err));
   };
 
-  //   send id to favorites
+  // send id to favorites
   sendFavorite = () => {
     const id = this.props.match.params.id;
     console.log("id de la moneda a añadir favoritos:", id);
@@ -104,16 +94,17 @@ class CoinsList extends Component {
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/history/${symbol}`)
-      //   .get(`http://localhost:5000/coins/detail/5`)
-      //   .headers(CMC_PRO_API_KEY = "3e18416b-942d-419a-89ab-8f8058b12944")
       .then(response => {
-        // I will have all the information of a coin.
         arrHistory = response.data;
-        console.log(arrHistory);
+
+        // To fixed to 2 decimal
+        for (let i = 0; i < arrHistory.length; i++) {
+          arrHistory[i] = arrHistory[i].toFixed(2);
+        }
 
         this.getMinMax();
 
-        const historyCoin = response.data.map((value, i) => {
+        const historyCoin = arrHistory.map((value, i) => {
           return { value, time: i };
         });
 
@@ -122,9 +113,6 @@ class CoinsList extends Component {
       .catch(err => console.log(err));
 
     btnPressed = true;
-    console.log(this.historyCoin);
-
-    console.log("Apretado");
   };
 
   componentDidMount() {
@@ -139,10 +127,12 @@ class CoinsList extends Component {
         <div className="detail-coin">
           <div>
             <img src={this.state.coin.img} alt="" />
+            <br />
+            <br />
 
             {btnPressed === true ? (
               <LineChart
-                width={500}
+                width={400}
                 height={300}
                 data={this.state.historyCoin}
                 /* viewBox="0 0 400 350" */
@@ -155,23 +145,18 @@ class CoinsList extends Component {
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="time" />
-                <YAxis
-                  type="number"
-                  domain={[this.state.arrMinMax]}
-                />
+                <YAxis type="number" domain={[this.state.arrMinMax]} />
                 <Tooltip />
                 <Legend />
                 <Line type="monotone" dataKey="value" stroke="#8884d8" />
                 <Line type="monotone" dataKey="value" stroke="#82ca9d" />
               </LineChart>
-            ) : (
-              /*{ <PieChart width={730} height={250}>
+            ) : /*{ <PieChart width={730} height={250}>
               <Pie data={this.state.historyCoin} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} fill="#8884d8"  label/>
               
           </PieChart> }*/
 
-              null
-            )}
+            null}
 
             <button
               onClick={this.pressButton}
@@ -184,7 +169,9 @@ class CoinsList extends Component {
           <p className="description-detail">{this.state.coin.description}</p>
           <h3 className="price-detail">${this.state.coin.price}</h3>
           <h4 className="symbol-detail">Symbol: {this.state.coin.symbol}</h4>
-          <a href={this.state.coin.web} className="web-detail">Link to the webpage</a>
+          <a href={this.state.coin.web} className="web-detail">
+            Link to the webpage
+          </a>
           <h4 className="tags-detail">{this.state.coin.tags}</h4>
 
           {!this.state.isInFavorites ? (

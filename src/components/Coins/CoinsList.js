@@ -28,8 +28,6 @@ class CoinsList extends Component {
         }
         
       
-        
-
         const copyListOfCoins = [...listOfCoins];
 
         this.setState({

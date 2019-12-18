@@ -9,7 +9,7 @@ class OwnCoins extends Component {
 
   getAllOwnCoins = () => {
     axios
-      .get("http://localhost:5000/owncoins/", { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/owncoins/`, { withCredentials: true })
       .then(result => {
         console.log("result: ", result.data.owncoins);
 
@@ -23,7 +23,7 @@ class OwnCoins extends Component {
   removeOwnCoin = (id) => {
       console.log("nada ahora");
       console.log(id);
-    axios.post(`http://localhost:5000/owncoins/remove/${id}`, null, {
+    axios.post(`${process.env.REACT_APP_API_URL}/owncoins/remove/${id}`, null, {
       withCredentials: true
     });
 

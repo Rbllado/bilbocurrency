@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { withAuth } from '../lib/AuthProvider';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { withAuth } from "../lib/AuthProvider";
 
 class Signup extends Component {
-  state = { username: '', password: '' };
+  state = { username: "", password: "" };
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -21,29 +21,59 @@ class Signup extends Component {
     const { username, password } = this.state;
     return (
       <div>
-        <h1>Sign Up</h1>
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={this.handleChange}
-          />
+        <div className="container-profile">
+          {/* <!-- edit form column --> */}
+          <div className="col-lg-12 text-lg-center">
+            <h2>Sign up</h2>
+            <br />
+            <br />
+          </div>
+          <div className="col-lg-6 push-lg-4 personal-info edit-profile">
+            <form onSubmit={this.handleFormSubmit}>
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label">
+                  Username:
+                </label>
+                <div className="col-lg-8">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="username"
+                    value={username}
+                    onChange={this.handleChange}
+                  />
+                </div>
+              </div>
 
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label">
+                  Password
+                </label>
+                <div className="col-lg-8">
+                  <input
+                    className="form-control"
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={this.handleChange}
+                    onChange={this.handleChange}
+                  />
+                </div>
+              </div>
 
-          <input type="submit" value="Signup" />
-        </form>
-
-        <p>Already have account?</p>
+              <div className="form-group row">
+                <label className="col-lg-3 col-form-label form-control-label"></label>
+                <div className="col-lg-9">
+                  <button type="submit" className="btn btn-primary" value="Save Changes">
+                    Save Changes
+                  </button>
+                </div>
+              </div>
+            </form>
+            <p>Already have account?</p>
         <Link to={'/login'}> Login</Link>
+          </div>
+        </div>
       </div>
     );
   }

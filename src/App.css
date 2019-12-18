@@ -1,6 +1,28 @@
 .App {
   text-align: center;
 }
+
+
+
+
+/* <!-- CSS media query within a style sheet --> */
+
+@media (max-width: 500px) {
+  .App {
+    overflow-x: hidden;
+    
+  }
+.detail-container .detail-coin{
+  margin: 0;
+  padding: 0
+}
+
+
+}
+
+
+
+
 body{
   font-family: 'Roboto', sans-serif !important;
 }
