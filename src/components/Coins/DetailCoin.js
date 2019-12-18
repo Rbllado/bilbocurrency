@@ -41,7 +41,6 @@ class CoinsList extends Component {
   };
 
   getCoin = () => {
-    console.log("Heyyy", this.props.match.params);
 
     const id = this.props.match.params.id;
     console.log(id);
@@ -74,7 +73,6 @@ class CoinsList extends Component {
   // send id to favorites
   sendFavorite = () => {
     const id = this.props.match.params.id;
-    console.log("id de la moneda a añadir favoritos:", id);
 
     axios
       // to send the currentUSer to the backend
@@ -82,9 +80,7 @@ class CoinsList extends Component {
         withCredentials: true
       })
       .then(result => {
-        console.log("resultado", result);
         this.setState({ isInFavorites: true });
-        console.log("Boolean", this.state.isInFavorites);
       })
       .catch(err => console.log(err));
   };
@@ -117,11 +113,10 @@ class CoinsList extends Component {
 
   componentDidMount() {
     this.getCoin();
-    // this.setState({historyCoin: null})
+    // Reset the chart
   }
 
   render() {
-    console.log("idsfhghfjkd", this.state.historyCoin);
     return (
       <div className="detail-container">
         <div className="detail-coin">

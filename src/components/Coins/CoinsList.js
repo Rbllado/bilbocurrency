@@ -27,7 +27,6 @@ class CoinsList extends Component {
             listOfCoins[i].price = listOfCoins[i].price.toFixed(4);
         }
         
-      
         const copyListOfCoins = [...listOfCoins];
 
         this.setState({
@@ -69,11 +68,11 @@ class CoinsList extends Component {
         </div>
 
             <div className="row list-coins">
-        {this.state.copyListOfCoins.map(coin => {
+        {this.state.copyListOfCoins.map((coin, key) => {
           return (
             //We take the key from database that is unique..
             //* classname = coins *
-              <div className="col-lg-3 col-md-6 col-sm 12">
+              <div key={key} className="col-lg-3 col-md-6 col-sm 12">
                 <div
                   className="card coins"
                   key={coin._id}

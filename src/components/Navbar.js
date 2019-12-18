@@ -14,7 +14,6 @@ import {
 const a = document.getElementById("navbarNavDropdown");
 
 class Navbar1 extends Component {
-  
   render() {
     const { user, logout, isLoggedin } = this.props;
 
@@ -26,43 +25,48 @@ class Navbar1 extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             {isLoggedin ? (
               <Nav className="mr-auto">
-              <Nav.Link href="#home"> <img src="/images/logo.jpg" className="logo-footer" alt=""/></Nav.Link>
-
-          <Nav.Link href="#home"> <a className="nav-link">  Welcome : {user.username}</a></Nav.Link>
-                <Nav.Link>
-                    <a className="nav-link" onClick={logout}>
-                     Logout
-                    </a>
-                </Nav.Link>
-                <Nav.Link>
-                  <Link to="/coins">
-                    <a className="nav-link">Coin List</a>
-                  </Link>
-                </Nav.Link>
-                <Nav.Link>
-                  <Link className="nav-item" to="/owncoins/add">
-                    {" "}
-                    <a className="nav-link"> Add Own Coin</a>
+                {/* <Nav.Link href="#home"> <img src="/images/logo.jpg" className="logo-footer" alt=""/></Nav.Link> */}
+                <Nav.Link href="#" className="nav-link">
+                <Link to="/" className="nav-link">
+                    Bilbocurrency
                   </Link>
                 </Nav.Link>
 
+                <Nav.Link href="#home" className="nav-link">
+                  <Link to="/" className="nav-link">
+                    Welcome : {user.username}
+                  </Link>
+                </Nav.Link>
                 <Nav.Link>
-                  <Link to="/favorites">
-                    {" "}
-                    <a className="nav-link">Favorites</a>{" "}
+                  <Link to="/" className="nav-link" onClick={logout}>
+                    Logout
+                  </Link>
+                </Nav.Link>
+                <Nav.Link>
+                  <Link to="/coins" className="nav-link">
+                    Coin List
+                  </Link>
+                </Nav.Link>
+                <Nav.Link>
+                  <Link className="nav-link" to="/owncoins/add">
+                    Add Own Coin
                   </Link>
                 </Nav.Link>
 
                 <Nav.Link>
-                  <Link to="/owncoins/">
-                    {" "}
-                    <a className="nav-link">Own Coin List</a>{" "}
+                  <Link to="/favorites" className="nav-link">
+                    Favorites
+                  </Link>
+                </Nav.Link>
+
+                <Nav.Link>
+                  <Link to="/owncoins/" className="nav-link">
+                    Own Coin List
                   </Link>
                 </Nav.Link>
                 <Nav.Link>
-                  <Link to="/editprofile/">
-                    {" "}
-                    <a className="nav-link">Edit profile</a>{" "}
+                  <Link to="/editprofile/" className="nav-link">
+                    Edit profile
                   </Link>
                 </Nav.Link>
 
@@ -79,39 +83,41 @@ class Navbar1 extends Component {
                     Separated link
                   </NavDropdown.Item>
                 </NavDropdown> */}
-
               </Nav>
             ) : (
               <Nav className="mr-auto">
-              <Nav.Link href="#home"> <img src="/images/logo.jpg" className="logo-footer" alt=""/></Nav.Link>
+                {/* <Nav.Link href="#home" > <img className="nav-link" src="/images/logo.jpg" className="logo-footer" alt=""/></Nav.Link> */}
+                <Nav.Link href="#home">
+                  {" "}
+                  <Link to="/" className="nav-link">
+                    Bilbocurrency
+                  </Link>{" "}
+                </Nav.Link>
+
                 <Nav.Link>
-                  <Link to="/login">
-                    {" "}
-                    <a className="nav-link">Login</a>{" "}
+                  <Link to="/login" className="nav-link">
+                    Login
                   </Link>
                 </Nav.Link>
                 <Nav.Link>
-                  <Link to="/signup">
-                    {" "}
-                    <a className="nav-link">Signup</a>{" "}
+                  <Link to="/signup" className="nav-link">
+                    Signup
                   </Link>
                 </Nav.Link>
                 <Nav.Link>
-                  <Link to="/coins">
-                    {" "}
-                    <a className="nav-link">CoinList</a>{" "}
+                  <Link to="/coins" className="nav-link">
+                    CoinList
                   </Link>
                 </Nav.Link>
 
                 <Nav.Link>
-                  <Link to="/coins/updatehistory">
-                    {" "}
-                    <a className="nav-link">Update Hisotry</a>{" "}
+                  {/* will go to listcoin */}
+                  <Link to="/coins/updatehistory" className="nav-link">
+                    Update Hisotry
                   </Link>
                 </Nav.Link>
               </Nav>
             )}
-
           </Navbar.Collapse>
         </Navbar>
       </div>

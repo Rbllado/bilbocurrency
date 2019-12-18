@@ -24,8 +24,7 @@ class Favorites extends Component {
   };
 
   removeFavorite = id => {
-    console.log(id);
-    axios.post(`http://localhost:5000/favorites/remove/${id}`, null, {
+    axios.post(`${process.env.REACT_APP_API_URL}/favorites/remove/${id}`, null, {
       withCredentials: true
     });
 
@@ -46,9 +45,9 @@ class Favorites extends Component {
       <div>
         <br/>
         {allFavorites.length ? (
-          allFavorites.map(favorite => {
+          allFavorites.map((favorite, key) => {
             return (
-        <div className="card  favorites-cards col-md-8 col-lg-8 col-sm-12">
+        <div key={key} className="card  favorites-cards col-md-8 col-lg-8 col-sm-12">
           <br/>
           <img className="card-img-top favorite-logo" src={favorite.img} alt="Card" />
           <div className="card-body">
