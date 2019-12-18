@@ -88,6 +88,8 @@ class AddOwnCoins extends Component {
           {/* To take the image able to read the file */}
           <br />
           <div className="col-lg-6 push-lg-4 personal-info edit-profile">
+            <h2>Add your own coin</h2>
+            <br/>
             <form onSubmit={this.handleSubmit}>
               <div className="form-group row">
                 <label className="col-lg-3 col-form-label form-control-label">
@@ -221,7 +223,8 @@ class AddOwnCoins extends Component {
                   {/* <button type="button" className="btn btn-primary btn-lg">
                     Submit
                   </button> */}
-                  <input type="submit" value="Submit" />
+                  {/* <input type="submit" value="Submit" /> */}
+                  <button type="submit" className="btn btn-primary"> Submit </button>
                 </div>
             </form>
           </div>

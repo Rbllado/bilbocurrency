@@ -20,8 +20,18 @@ class OwnCoins extends Component {
   };
 
 
-  removeOwnCoin = () => {
+  removeOwnCoin = (id) => {
       console.log("nada ahora");
+      console.log(id);
+    axios.post(`http://localhost:5000/owncoins/remove/${id}`, null, {
+      withCredentials: true
+    });
+
+    this.setState({
+      allOwnCoin: this.state.allOwnCoin.filter(elem => {
+        return elem._id !== id;
+      })
+    });
       
   }
 
@@ -37,32 +47,41 @@ class OwnCoins extends Component {
     return (
         
       <div>
-        <h1>List your coins</h1>
-        <div className="favorite-coins">
-          {allOwnCoin.length ? (
+        <br/>
+        {allOwnCoin.length ? (
             allOwnCoin.map(owncoin => {
               return (
-                <div className="favorite-coin">
-                  <h1>{owncoin.name}</h1>
-                  {/* <img>{owncoin.img}</img> */}
-                  <img src={owncoin.img} alt=""/>
-                  <h3>{owncoin.symbol}</h3>
-                  <p>{owncoin.description}</p>
-                  <button
-                    onClick={() => {
-                      this.removeOwnCoin(owncoin._id);
-                    }}
-                    key={owncoin._id}
-                  >
-                    Eliminar
-                  </button>
-                </div>
-              );
-            })
-          ) : (
-            <h2>Loading</h2>
-          )}
-        </div>
+        <div className="card  owncoins-cards col-md-8 col-lg-8 col-sm-12">
+          <br/>
+          <img className="card-img-top owncoin-logo" src={owncoin.img} alt="Card" />
+          <div className="card-body">
+            <h5 className="card-title">Name: {owncoin.name}</h5>
+            <h5 className="card-title">Symbol: {owncoin.symbol}</h5>
+            <h5 className="card-title">Euros: {owncoin.price}</h5>
+            
+            <p className="card-text owncoin-descriptoin-detail">
+              {owncoin.description}
+            </p>
+            <p className="card-text">
+            <button
+                  onClick={() => {
+                    this.removeOwnCoin(owncoin._id);
+                  }}
+                  key={owncoin._id}
+                  className="btn btn-danger"
+                  
+                >
+                  Eliminar
+                </button>
+            </p>
+          </div>
+          </div>
+          );
+        })
+         
+         ) : (
+          <h2>You don´t have own coins</h2>
+      )}
       </div>
     );
   }

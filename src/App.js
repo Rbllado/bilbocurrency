@@ -38,13 +38,15 @@ class App extends Component {
 
         {/* Should be accesible for both site... now it's to try to add favorites */}
           <Route  exact path="/coins" component={ CoinsList }/>
+          <PrivateRoute path="/coins/detail/:id"  component={DetailCoin} />
+
           <PrivateRoute  exact path="/owncoins/add" component={ AddOwnCoins }/>
           <PrivateRoute  exact path="/owncoins/" component={ OwnCoins }/>
           
+          {/* Change to coins */}
           <History  path="/coins/updatehistory" />
           {/* <DetailCoin path="/coins/detail/:id" /> */}
           {/* <Route path="/coins/detail/:id"  component={DetailCoin} /> */}
-          <PrivateRoute path="/coins/detail/:id"  component={DetailCoin} />
           <PrivateRoute path="/favorites" component={ Favorites }/>
           <Route component={ Default }/>
 

@@ -184,7 +184,7 @@ class CoinsList extends Component {
           <p className="description-detail">{this.state.coin.description}</p>
           <h3 className="price-detail">${this.state.coin.price}</h3>
           <h4 className="symbol-detail">Symbol: {this.state.coin.symbol}</h4>
-          <a href={this.state.coin.web}>Link to the webpage</a>
+          <a href={this.state.coin.web} className="web-detail">Link to the webpage</a>
           <h4 className="tags-detail">{this.state.coin.tags}</h4>
 
           {!this.state.isInFavorites ? (

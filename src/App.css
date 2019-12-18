@@ -128,9 +128,30 @@ border-radius: 30px;
   margin-top: 30px;
   margin-bottom: 30px;
 }
+.web-detail{
+  margin-top: 30px;
+}
 
-.container-profile{
-  
+/* Owncoin page */
+
+.card .owncoin-logo{
+  width: 100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.owncoin-descriptoin-detail{
+  text-align: center;
+  margin: 4%;
+}
+
+
+.owncoins-cards{
+  margin: 5% auto;
+  -webkit-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+  box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+
 }
 
 

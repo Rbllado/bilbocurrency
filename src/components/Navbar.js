@@ -101,7 +101,7 @@ class Navbar1 extends Component {
                 </Nav.Link>
 
                 <Nav.Link>
-                  <Link to="/coins/updateHistory">
+                  <Link to="/coins/updatehistory">
                     {" "}
                     <a className="nav-link">Update Hisotry</a>{" "}
                   </Link>
