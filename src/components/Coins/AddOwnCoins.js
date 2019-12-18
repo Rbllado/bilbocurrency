@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+var uploadData;
+
 class AddOwnCoins extends Component {
   state = {
     // ownCoins: []
@@ -18,6 +20,9 @@ class AddOwnCoins extends Component {
   handleInput = e => {
     // take the value of every name and put the value of each one.
     const { name, value } = e.target;
+
+    console.log('name :', name, 'name :',value);
+    
 
     this.setState({ [name]: value });
   };
@@ -51,30 +56,26 @@ class AddOwnCoins extends Component {
   };
 
   uploadImg = e => {
-    // console.log("target: ", e.target.files[0]);
-
-    // const file = e.target.files[0];
-    // console.log("File:",file);
-
-    // const uploadData = new FormData();
-    // // img the same from the backend and into the file const.
-    // uploadData.append("img", file);
 
     const file = e.target.files[0];
     console.log(file);
 
-    const uploadData = new FormData();
-    uploadData.append("img", file);
-
-    console.log("I send this one:", uploadData);
+    if(file){
+      uploadData = new FormData();
+      uploadData.append("img", file);
+  
+      console.log("Form Data:", uploadData);
+    }
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/owncoins/image`, uploadData)
       .then(imagen => {
         // const img = imagen.data;
-        console.log("image", imagen);
+        console.log("kjvsnsdf", imagen.data);
+        
 
-        this.setState({ imagen });
+        this.setState({ img: imagen.data });
+
       })
       .catch(err => console.log(err));
   };
@@ -131,6 +132,7 @@ class AddOwnCoins extends Component {
                     onChange={this.handleInput}
                     id="exampleFormControlSelect2"
                   >
+                  <option>-</option>
                     <option>Minable</option>
                     <option>Not minable</option>
                   </select>
@@ -213,14 +215,14 @@ class AddOwnCoins extends Component {
                 </div>
               </div>
 
-              <div className="form-group row">
+              
                 <label className="col-lg-3 col-form-label form-control-label"></label>
                 <div className="col-lg-9">
-                  <button type="button" className="btn btn-primary btn-lg">
+                  {/* <button type="button" className="btn btn-primary btn-lg">
                     Submit
-                  </button>
+                  </button> */}
+                  <input type="submit" value="Submit" />
                 </div>
-              </div>
             </form>
           </div>
         </div>

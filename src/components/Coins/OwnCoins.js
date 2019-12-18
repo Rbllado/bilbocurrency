@@ -44,7 +44,8 @@ class OwnCoins extends Component {
               return (
                 <div className="favorite-coin">
                   <h1>{owncoin.name}</h1>
-                  <h2>{owncoin.img}</h2>
+                  {/* <img>{owncoin.img}</img> */}
+                  <img src={owncoin.img} alt=""/>
                   <h3>{owncoin.symbol}</h3>
                   <p>{owncoin.description}</p>
                   <button
