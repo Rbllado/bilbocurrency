@@ -49,9 +49,9 @@ class OwnCoins extends Component {
       <div>
         <br/>
         {allOwnCoin.length ? (
-            allOwnCoin.map(owncoin => {
+            allOwnCoin.map((owncoin, key) => {
               return (
-        <div className="card  owncoins-cards col-md-8 col-lg-8 col-sm-12">
+        <div  key={key} className="card  owncoins-cards col-md-8 col-lg-8 col-sm-12">
           <br/>
           <img className="card-img-top owncoin-logo" src={owncoin.img} alt="Card" />
           <div className="card-body">
