@@ -14,9 +14,9 @@ class CoinsList extends Component {
       .get(`${process.env.REACT_APP_API_URL}/coins`)
       //   .headers(CMC_PRO_API_KEY = "3e18416b-942d-419a-89ab-8f8058b12944")
       .then(response => {
+
         // In that way I put only the array of the fields into listOfCoins
         // If I am taking from the API
-        // const listOfCoins = response.data.data;
 
         const listOfCoins = response.data;
         const price = response.data[0].price.toFixed(2);
