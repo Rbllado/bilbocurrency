@@ -19,13 +19,23 @@ class CoinsList extends Component {
         // const listOfCoins = response.data.data;
 
         const listOfCoins = response.data;
-        console.log("ListofCoins", listOfCoins);
+        const price = response.data[0].price.toFixed(2);
 
-        const copyListOfCoins = [...listOfCoins]
 
-        this.setState({ listOfCoins, copyListOfCoins: copyListOfCoins.slice(0,20) });
-
+        // To fixed to decimal 
+        for(let i = 0; i < listOfCoins.length; i++){
+            listOfCoins[i].price = listOfCoins[i].price.toFixed(4);
+        }
         
+      
+        
+
+        const copyListOfCoins = [...listOfCoins];
+
+        this.setState({
+          listOfCoins,
+          copyListOfCoins: copyListOfCoins.slice(0, 20)
+        });
       })
       .catch(err => console.log(err));
   };
@@ -35,16 +45,12 @@ class CoinsList extends Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
 
-    const copyListOfCoins = this.state.listOfCoins.filter((elem) => {
+    const copyListOfCoins = this.state.listOfCoins.filter(elem => {
       return elem.name.toLowerCase().includes(e.target.value);
-    })
+    });
 
-    
-
-    this.setState({copyListOfCoins});
-
+    this.setState({ copyListOfCoins });
   };
-
 
   componentDidMount() {
     this.getAllCoins();
@@ -52,8 +58,8 @@ class CoinsList extends Component {
 
   render() {
     return (
-      <div className="coin-container">
-        <div className="col-lg-12">
+      <div className="coin-container ">
+        <div className="col-lg-8 search-bar">
           <input
             className="form-control"
             type="text"
@@ -64,66 +70,39 @@ class CoinsList extends Component {
           />
         </div>
 
-
-        {/* <div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div> */}
-
-
-
-
-
+            <div className="row list-coins">
         {this.state.copyListOfCoins.map(coin => {
           return (
             //We take the key from database that is unique..
             //* classname = coins *
-            <div className="coins-item">
-              {/* Try with card decker */}
-
-              <div
-                class="card coins "
-                key={coin._id}
-                style={{ width: "12rem" }}
-              >
-                <img class="card-img-top" src={coin.img} alt="Card" />
-                <div class="card-body">
-                  <h5 class="card-title">{coin.name}</h5>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">{coin.price}</li>
-                  <li class="list-group-item">{coin.tags}</li>
-                  <li class="list-group-item">{coin.symbol}</li>
-                </ul>
-                <div class="card-body">
-                  <Link
-                    to={`/coins/detail/${coin._id}`}
-                    key={coin._id}
-                    className="card-link"
-                  >
-                    Details
-                  </Link>
+              <div className="col-lg-3 col-md-6 col-sm 12">
+                <div
+                  className="card coins"
+                  key={coin._id}
+                >
+                  <img className="card-img-top coinlist-logo" src={coin.img} alt="Card" />
+                  <div className="card-body">
+                    <h5 className="card-title">{coin.name}</h5>
+                  </div>
+                  <ul className="list-group list-group-flush">
+                    <li className="list-group-item">${coin.price}</li>
+                    <li className="list-group-item">Tag: {coin.tags}</li>
+                    <li className="list-group-item">{coin.symbol}</li>
+                  </ul>
+                  <div className="card-body">
+                    <Link
+                      to={`/coins/detail/${coin._id}`}
+                      key={coin._id}
+                      className="card-link"
+                    >
+                      Details
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
           );
         })}
+            </div>
       </div>
     );
   }

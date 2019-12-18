@@ -44,17 +44,17 @@ border-radius: 30px;
 }
 
 .coins{
-  display: flex;
-  flex-direction: column;
-  align-content: space-around;
-  justify-content: space-between;
-  text-align: center;
   padding: 30px; 
-  align-items: center;
   margin-top: 20px;
-  width: 85%;
+  margin-bottom: 20px;
   border: 1px solid #4a4a4a;
   overflow: hidden;
+  border-radius: 20px !important  ;
+}
+
+.search-bar{
+  padding-top: 20px;
+  margin: 0 auto;
 }
 
 .container-owncoin{
@@ -89,9 +89,22 @@ border-radius: 30px;
 
 }
 
-.card .favorite-logo{
+.card .favorite-logo {
   width: 100px;
-    margin: 0 auto;
+  margin: 0 auto;
+}
+
+.card .coinlist-logo{
+  width: 100px;
+  margin: 0 auto;
+}
+
+.list-coins{
+  margin: 0 auto !important;
+}
+
+.search-bar{
+  margin: 0 auto;
 }
 
 .background-index img{
