@@ -74,7 +74,7 @@ body {
   padding: 30px;
   margin-top: 20px;
   margin-bottom: 20px;
-  border: 1px solid #4a4a4a;
+  /* border: 1px solid #4a4a4a; */
   overflow: hidden;
   border-radius: 20px !important  ;
 }
