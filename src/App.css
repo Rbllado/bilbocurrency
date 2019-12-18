@@ -2,61 +2,66 @@
   text-align: center;
 }
 
-
-
-
 /* <!-- CSS media query within a style sheet --> */
 
 @media (max-width: 500px) {
   .App {
     overflow-x: hidden;
-    
   }
-.detail-container .detail-coin{
-  margin: 0;
-  padding: 0
+  .detail-container .detail-coin {
+    margin: 0;
+    padding: 0;
+  }
 }
 
-
-}
-
-
-
-
-body{
-  font-family: 'Roboto', sans-serif !important;
+body {
+  font-family: "Roboto", sans-serif !important;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-.navbar-wrap{
+
+.logo-footer{
+  width: 100px;
+}
+.name-footer{
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.row .footer-donation{
+  margin: 10px;
+}
+
+
+.navbar-wrap {
   display: flex;
   justify-content: space-evenly;
 }
 
-.coin-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.coin-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-.coin-container a{
+.coin-container a {
   text-decoration: none;
 }
 
-.detail-container{
+.detail-container {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.coins:hover{
+.coins:hover {
   transform: scale(1);
-  -webkit-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
--moz-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-border-radius: 30px;
+  -webkit-box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  border-radius: 30px;
 }
 
 .coins-item {
@@ -65,8 +70,8 @@ border-radius: 30px;
   width: 33.33%;
 }
 
-.coins{
-  padding: 30px; 
+.coins {
+  padding: 30px;
   margin-top: 20px;
   margin-bottom: 20px;
   border: 1px solid #4a4a4a;
@@ -74,41 +79,39 @@ border-radius: 30px;
   border-radius: 20px !important  ;
 }
 
-.search-bar{
+.search-bar {
   padding-top: 20px;
   margin: 0 auto;
 }
 
-.container-owncoin{
+.container-owncoin {
   width: 30%;
   display: inline-block;
-
 }
-.all-form{
+.all-form {
   margin-top: 40px;
   width: 60%;
-  -webkit-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-  box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
   justify-content: center;
   margin: auto;
 }
 
-.form-owncoin{
+.form-owncoin {
   width: 90%;
-  -webkit-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-  box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-  margin:0 auto;
+  -webkit-box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  margin: 0 auto;
   padding-bottom: 20px;
 }
 
-.favorites-cards{
+.favorites-cards {
   margin: 5% auto;
-  -webkit-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-  box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-
+  -webkit-box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
 }
 
 .card .favorite-logo {
@@ -116,22 +119,22 @@ border-radius: 30px;
   margin: 0 auto;
 }
 
-.card .coinlist-logo{
+.card .coinlist-logo {
   width: 100px;
   margin: 0 auto;
 }
 
-.list-coins{
+.list-coins {
   margin: 0 auto !important;
 }
 
-.search-bar{
+.search-bar {
   margin: 0 auto;
 }
 
-.background-index img{
+.background-index img {
   width: 100%;
-  
+
   /* background-image: url("https://cdn.pixabay.com/photo/2018/02/04/17/39/crypto-currency-3130381__340.jpg");
   background-repeat: no-repeat;
   background-size: cover; */
@@ -139,56 +142,52 @@ border-radius: 30px;
 
 /* edit profile page */
 
-.edit-profile{
+.edit-profile {
   margin: 0 auto;
 }
 
-
 /* Description page */
-.description-detail{
+.description-detail {
   text-align: justify;
   margin: 4%;
 }
 
-.name-detail{
+.name-detail {
   margin-top: 30px;
 }
-.price-detail{
+.price-detail {
   margin-top: 30px;
 }
-.symbol-detail{
+.symbol-detail {
   margin-top: 30px;
 }
-.tags-detail{
+.tags-detail {
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.web-detail{
+.web-detail {
   margin-top: 30px;
 }
 
 /* Owncoin page */
 
-.card .owncoin-logo{
+.card .owncoin-logo {
   width: 100px;
   margin: 0 auto;
   text-align: center;
 }
 
-.owncoin-descriptoin-detail{
+.owncoin-descriptoin-detail {
   text-align: center;
   margin: 4%;
 }
 
-
-.owncoins-cards{
+.owncoins-cards {
   margin: 5% auto;
-  -webkit-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-  box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-
+  -webkit-box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
 }
-
 
 /* .backkground-container{
   background-image: url("https://i0.wp.com/criptotendencia.com/wp-content/uploads/2019/03/ABC-Mundo-Crypto-CriptoTendencia.jpg?resize=890%2C450&ssl=1");
@@ -197,9 +196,7 @@ border-radius: 30px;
   background-position: center;
 } */
 
-
-.detail-coin{
-
+.detail-coin {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -207,13 +204,10 @@ border-radius: 30px;
   width: 150vh; */
   margin: 50px;
   padding: 40px;
-  -webkit-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-  box-shadow: 2px 14px 20px -5px rgba(0,0,0,0.75);
-
+  -webkit-box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 14px 20px -5px rgba(0, 0, 0, 0.75);
 }
-
-
 
 /* img{
   width: 50px;

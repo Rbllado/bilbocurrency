@@ -26,6 +26,8 @@ class Navbar1 extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             {isLoggedin ? (
               <Nav className="mr-auto">
+              <Nav.Link href="#home"> <img src="/images/logo.jpg" className="logo-footer" alt=""/></Nav.Link>
+
           <Nav.Link href="#home"> <a className="nav-link">  Welcome : {user.username}</a></Nav.Link>
                 <Nav.Link>
                     <a className="nav-link" onClick={logout}>
@@ -81,6 +83,7 @@ class Navbar1 extends Component {
               </Nav>
             ) : (
               <Nav className="mr-auto">
+              <Nav.Link href="#home"> <img src="/images/logo.jpg" className="logo-footer" alt=""/></Nav.Link>
                 <Nav.Link>
                   <Link to="/login">
                     {" "}

@@ -19,6 +19,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Private from './pages/Private';
 import Navbar from './components/Navbar';
+import Footer from "./components/Footer";
 
 import AnonRoute from './components/AnonRoute';
 import PrivateRoute from './components/PrivateRoute';
@@ -51,6 +52,8 @@ class App extends Component {
           <Route component={ Default }/>
 
         </Switch>
+
+        <Footer />
       </div>
     );
   }
