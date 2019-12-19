@@ -108,12 +108,20 @@ class CoinsList extends Component {
       })
       .catch(err => console.log(err));
 
+
     btnPressed = true;
   };
+
+
+  chartForm = () => {
+    
+    
+  }
 
   componentDidMount() {
     this.getCoin();
     // Reset the chart
+
   }
 
   render() {
@@ -126,6 +134,9 @@ class CoinsList extends Component {
             <br />
 
             {btnPressed === true ? (
+
+
+
               <LineChart
                 width={400}
                 height={300}
@@ -146,6 +157,7 @@ class CoinsList extends Component {
                 <Line type="monotone" dataKey="value" stroke="#8884d8" />
                 <Line type="monotone" dataKey="value" stroke="#82ca9d" />
               </LineChart>
+
             ) : /*{ <PieChart width={730} height={250}>
               <Pie data={this.state.historyCoin} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} fill="#8884d8"  label/>
               

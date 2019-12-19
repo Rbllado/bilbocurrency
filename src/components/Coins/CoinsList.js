@@ -12,19 +12,20 @@ class CoinsList extends Component {
   getAllCoins = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/coins`)
-      //   .headers(CMC_PRO_API_KEY = "3e18416b-942d-419a-89ab-8f8058b12944")
       .then(response => {
 
         // In that way I put only the array of the fields into listOfCoins
         // If I am taking from the API
-
-        const listOfCoins = response.data;
-        const price = response.data[0].price.toFixed(2);
-
+        
+        // conver a boolean value and if is false is not going to put it into listOfcoins.
+        const listOfCoins = response.data.filter(coin => !!coin);
 
         // To fixed to decimal 
         for(let i = 0; i < listOfCoins.length; i++){
-            listOfCoins[i].price = listOfCoins[i].price.toFixed(4);
+          if( !listOfCoins[i]){
+            console.log('index', i);
+          }
+            listOfCoins[i].price = Number(listOfCoins[i].price).toFixed(4);
         }
         
         const copyListOfCoins = [...listOfCoins];

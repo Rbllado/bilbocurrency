@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class History extends Component {
     state= {
@@ -33,18 +34,11 @@ class History extends Component {
     render() {
         return (
             <div>
-                
-            {this.state.historyCoins.map(coin => {
-          return (
-            //We take the key from database that is unique..
-            <div key={coin._id} className="History">
-                <h1>{coin.symbol}</h1>
-                {/* I think here need map with coin because it is array  */}
-                <h2>{parseInt(coin.value[0])}</h2>
-              
-            </div>
-          );
-        })}
+              <br/>
+                <h2>You have update the history of the coin</h2>
+                <Link to="/coins" className="nav-link">
+                    Go to coins
+                  </Link>
 
             </div>
         )

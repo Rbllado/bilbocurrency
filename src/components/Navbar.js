@@ -111,9 +111,9 @@ class Navbar1 extends Component {
                 </Nav.Link>
 
                 <Nav.Link>
-                  {/* will go to listcoin */}
+                  {/* will go to listcoin  --> /updatehistory*/}
                   <Link to="/coins/updatehistory" className="nav-link">
-                    Update Hisotry
+                    Update History
                   </Link>
                 </Nav.Link>
               </Nav>

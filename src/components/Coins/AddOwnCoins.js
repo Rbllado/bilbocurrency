@@ -21,26 +21,18 @@ class AddOwnCoins extends Component {
     // take the value of every name and put the value of each one.
     const { name, value } = e.target;
 
-    console.log('name :', name, 'name :',value);
-    
-
     this.setState({ [name]: value });
   };
 
   // submit the information to the backend
   handleSubmit = e => {
     e.preventDefault();
-    // const {name, price, type, id, symbol, img, description, web, history} = this.state;
-
-    console.log("estado :", this.state);
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/owncoins/add`, this.state, {
         withCredentials: true
       })
-      .then(answer => {
-        console.log("Answer post in add coins: ", answer);
-      })
+      .then(answer => {})
       .catch(err => console.log(err));
 
     this.setState({
@@ -55,27 +47,19 @@ class AddOwnCoins extends Component {
     });
   };
 
+  // upload the img to cloudinary. We sent to the backend the file and there upload the img to cloudinary.
   uploadImg = e => {
-
     const file = e.target.files[0];
-    console.log(file);
 
-    if(file){
+    if (file) {
       uploadData = new FormData();
       uploadData.append("img", file);
-  
-      console.log("Form Data:", uploadData);
     }
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/owncoins/image`, uploadData)
       .then(imagen => {
-        // const img = imagen.data;
-        console.log("kjvsnsdf", imagen.data);
-        
-
         this.setState({ img: imagen.data });
-
       })
       .catch(err => console.log(err));
   };
@@ -89,7 +73,7 @@ class AddOwnCoins extends Component {
           <br />
           <div className="col-lg-6 push-lg-4 personal-info edit-profile">
             <h2>Add your own coin</h2>
-            <br/>
+            <br />
             <form onSubmit={this.handleSubmit}>
               <div className="form-group row">
                 <label className="col-lg-3 col-form-label form-control-label">
@@ -134,7 +118,7 @@ class AddOwnCoins extends Component {
                     onChange={this.handleInput}
                     id="exampleFormControlSelect2"
                   >
-                  <option>-</option>
+                    <option>-</option>
                     <option>Minable</option>
                     <option>Not minable</option>
                   </select>
@@ -217,15 +201,13 @@ class AddOwnCoins extends Component {
                 </div>
               </div>
 
-              
-                <label className="col-lg-3 col-form-label form-control-label"></label>
-                <div className="col-lg-9">
-                  {/* <button type="button" className="btn btn-primary btn-lg">
-                    Submit
-                  </button> */}
-                  {/* <input type="submit" value="Submit" /> */}
-                  <button type="submit" className="btn btn-primary"> Submit </button>
-                </div>
+              <label className="col-lg-3 col-form-label form-control-label"></label>
+              <div className="col-lg-9">
+                <button type="submit" className="btn btn-primary">
+                  {" "}
+                  Submit{" "}
+                </button>
+              </div>
             </form>
           </div>
         </div>
