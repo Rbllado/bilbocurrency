@@ -14,7 +14,7 @@ import {
 } from "recharts";
 import { parse } from "path";
 
-const buttonFav = document.getElementsByClassName("btn-favorite");
+
 var btnPressed = false;
 var arrHistory;
 
